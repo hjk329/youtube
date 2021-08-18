@@ -11,14 +11,28 @@ import {
     MdVideoLibrary,
     MdRestore,
     MdAccountCircle,
-    MdAddCircle, MdSettings, MdFlag, MdHelp, MdFeedback, MdPlayCircleFilled, MdSurroundSound
+    MdAddCircle, MdSettings, MdFlag, MdHelp, MdFeedback, MdPlayCircleFilled, MdSurroundSound, MdMenu
 } from "react-icons/all";
-import {IconEdu, IconGame, IconLive, IconMovie, IconMusic, IconNews, IconSports, IconVid} from "../../../../icons";
+import {
+    IconEdu,
+    IconGame,
+    IconLive,
+    IconLogo,
+    IconMovie,
+    IconMusic,
+    IconNews,
+    IconSports,
+    IconVid
+} from "../../../../icons";
 
 
 const Sidebar = () => {
     return (
         <Container>
+            {/*<Logo>*/}
+            {/*    <Button className={'side'}> <MdMenu/> </Button>*/}
+            {/*    <Button className={'logo'}> <IconLogo/> </Button>*/}
+            {/*</Logo>*/}
             <MenuBox>
                 <ActionButton>
                     <IconButton icon={<MdHome/>} text={'홈'}/>
@@ -35,7 +49,7 @@ const Sidebar = () => {
             </MenuBox>
             <MenuBox>
                 <p> 로그인하면 동영상에 좋아요를 표시하고 댓글을 달거나 구독할 수 있습니다. </p>
-                <Button>  <MdAccountCircle/> 로그인 </Button>
+                <LoginButton>  <MdAccountCircle/> 로그인 </LoginButton>
             </MenuBox>
             <MenuBox>
                 <p> 인기 YOUTUBE </p>
@@ -99,8 +113,29 @@ const Sidebar = () => {
 
 const Container = styled.div`
   width: 240px;
-  position: fixed;
-  top : 60px;
+  position: absolute;
+  top:64px;
+  left : 0;
+  z-index: 100;
+  background: rgb(255, 255, 255);
+`;
+
+const Logo = styled.div`
+  display: flex;
+  height: 56px;
+  align-items: center;
+  padding: 0 16px;
+
+`;
+
+const Button = styled.div`
+  padding: 8px;
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: rgb(96, 96, 96);
+    }
+
 `;
 
 const MenuBox = styled.div`
@@ -113,7 +148,7 @@ const MenuBox = styled.div`
 
 `;
 
-const Button = styled(Link)`
+const LoginButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,6 +166,7 @@ const Button = styled(Link)`
     fill: rgb(6, 95, 212);
     margin-right: 8px;
   }
+  
 `;
 
 const Info = styled.div`

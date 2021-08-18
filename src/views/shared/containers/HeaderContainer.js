@@ -2,12 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Gnb from "../components/Header/Gnb";
-
+import Shortcuts from "../components/Sidebar/Shortcuts";
 
 const HeaderContainer = () => {
+
     return (
         <Container>
             <Gnb/>
+            <Shortcuts/>
         </Container>
     )
 }

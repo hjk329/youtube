@@ -4,16 +4,16 @@ const initialState = {
 
 export const Actions = {
     Types : {
-        SHOW_MENU : 'SHOW_MENU',
-        HANDLE_MENU : 'HANDLE_MENU'
+        SHOW_SIDEBAR : 'SHOW_SIDEBAR',
+        HANDLE_SIDEBAR : 'HANDLE_SIDEBAR'
     },
     Creators : {
-        showMenu : (payload) => ({
-            type : Actions.Types.SHOW_MENU,
+        showSidebar : (payload) => ({
+            type : Actions.Types.SHOW_SIDEBAR,
             payload
         }),
-        handleMenu : (data) => ({
-            type : Actions.Types.HANDLE_MENU,
+        handleSidebar : (data) => ({
+            type : Actions.Types.HANDLE_SIDEBAR,
             data
         })
     }
@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
         default : return {
             ...state
         }
-        case Actions.Types.HANDLE_MENU : {
+        case Actions.Types.HANDLE_SIDEBAR : {
             return  {
                 ...state,
                 isVisible: action.data
