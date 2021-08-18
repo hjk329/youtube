@@ -1,9 +1,9 @@
 import {combineReducers} from "redux";
 
-import menuReducer from '../views/shared/redux/slice'
+import sidebarReducer from '../views/shared/redux/slice'
 
 const rootReducer = combineReducers({
-    menu : menuReducer
+    sidebar : sidebarReducer
 })
 
 export default rootReducer;

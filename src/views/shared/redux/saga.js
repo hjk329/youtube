@@ -3,11 +3,11 @@ import {takeLatest, put} from 'redux-saga/effects'
 import {Actions as Action} from "./slice";
 
 function* showMenu({payload}) {
-    yield put(Action.Creators.handleMenu(false))
+    yield put(Action.Creators.handleSidebar(false))
 }
 
 function* saga (){
-    yield takeLatest(Action.Types.SHOW_MENU, showMenu)
+    yield takeLatest(Action.Types.SHOW_SIDEBAR, showMenu)
 }
 
 export default saga
