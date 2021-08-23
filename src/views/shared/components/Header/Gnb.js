@@ -1,31 +1,38 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Nav from "./Nav";
-import {IconLogo} from "../../../../icons";
-import SearchBox from "./SearchBox";
-import {MdMenu} from "react-icons/all";
-import {DefaultButton} from "../Button/StyledButton";
-import Sidebar from "../Sidebar";
+import { MdMenu } from 'react-icons/all';
 
+import Nav from './Nav';
+import { IconLogo } from '../../../../icons';
+import SearchBox from './SearchBox';
+import { DefaultButton } from '../Button/DefaultButton';
+import Sidebar from '../Sidebar';
 
 const Gnb = () => {
-
-    const [sidebar, setSidebar] = useState(true)
-    return (
-        <Container>
-            <Logo>
-                <Button className={'side'} onClick={() => setSidebar(v=>!v)}> <MdMenu/> </Button>
-                <Button className={'logo'}> <IconLogo/> </Button>
-            </Logo>
-            <SearchBox/>
-            <Nav/>
-            {
-                sidebar &&
-                    <Sidebar/>
-            }
-        </Container>
-    )
+  const [sidebar, setSidebar] = useState(true)
+  return (
+    <Container>
+      <Logo>
+        <Button className="side" onClick={() => setSidebar((v) => !v)}>
+          {' '}
+          <MdMenu />
+          {' '}
+        </Button>
+        <Button className="logo">
+          {' '}
+          <IconLogo />
+          {' '}
+        </Button>
+      </Logo>
+      <SearchBox />
+      <Nav />
+      {
+        sidebar
+                    && <Sidebar />
+      }
+    </Container>
+  )
 }
 
 const Container = styled.div`

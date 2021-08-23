@@ -1,35 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {MdExplore, MdHome, MdRestore, MdSubscriptions, MdVideoLibrary} from "react-icons/all";
+import {
+  MdExplore, MdHome, MdRestore, MdSubscriptions, MdVideoLibrary,
+} from 'react-icons/all';
 
-
-const Shortcuts = () => {
-    return (
-        <Container>
-            <IconBox>
-                <Icon> <MdHome/> </Icon>
-                <Text>홈</Text>
-            </IconBox>
-            <IconBox>
-                <Icon><MdExplore/></Icon>
-                <Text>탐색</Text>
-            </IconBox>
-            <IconBox>
-                <Icon><MdSubscriptions/></Icon>
-                <Text>구독</Text>
-            </IconBox>
-            <IconBox>
-                <Icon><MdVideoLibrary/></Icon>
-                <Text>보관함</Text>
-            </IconBox>
-            <IconBox>
-                <Icon><MdRestore/></Icon>
-                <Text>시청기록</Text>
-            </IconBox>
-        </Container>
-    )
-}
+const Shortcuts = () => (
+  <Container>
+    <IconBox>
+      <Icon>
+        {' '}
+        <MdHome />
+        {' '}
+      </Icon>
+      <Text>홈</Text>
+    </IconBox>
+    <IconBox>
+      <Icon><MdExplore /></Icon>
+      <Text>탐색</Text>
+    </IconBox>
+    <IconBox>
+      <Icon><MdSubscriptions /></Icon>
+      <Text>구독</Text>
+    </IconBox>
+    <IconBox>
+      <Icon><MdVideoLibrary /></Icon>
+      <Text>보관함</Text>
+    </IconBox>
+    <IconBox>
+      <Icon><MdRestore /></Icon>
+      <Text>시청기록</Text>
+    </IconBox>
+  </Container>
+)
 
 const Container = styled.div`
   position: fixed;

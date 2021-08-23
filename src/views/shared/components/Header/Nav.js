@@ -1,21 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import {MdAccountCircle, MdApps, MdMoreVert} from "react-icons/all";
+import { MdAccountCircle, MdApps, MdMoreVert } from 'react-icons/all';
 
-
-const Nav = () => {
-    return (
-        <Container>
-            <NavItem><MdApps/></NavItem>
-            <NavItem><MdMoreVert/></NavItem>
-            <NavItem>
-                    <MdAccountCircle/> 로그인
-            </NavItem>
-        </Container>
-    )
-}
+const Nav = () => (
+  <Container>
+    <NavItem><MdApps /></NavItem>
+    <NavItem><MdMoreVert /></NavItem>
+    <NavItem>
+      <MdAccountCircle />
+      {' '}
+      로그인
+    </NavItem>
+  </Container>
+)
 
 const Container = styled.div`
   flex-basis: auto;

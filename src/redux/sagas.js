@@ -1,11 +1,10 @@
-import {fork, all} from 'redux-saga/effects'
+import { fork, all } from 'redux-saga/effects';
 
-import sidebarSaga from '../views/shared/redux/saga'
+import homeSaga from '../views/home/redux/saga'
 
 function* sagas() {
-    yield all([
-        fork(sidebarSaga)
-    ])
-
+  yield all([
+    fork(homeSaga),
+  ])
 }
 export default sagas;
