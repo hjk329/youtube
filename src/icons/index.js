@@ -5,7 +5,10 @@ export const IconLogo = () => (
     focusable="false"
     className="style-scope yt-icon"
     style={{
-      pointerEvents: 'none', display: 'block', width: '90px', height: '20px',
+      pointerEvents: 'none',
+      display: 'block',
+      width: '90px',
+      height: '20px',
     }}
   >
     <g viewBox="0 0 90 20" preserveAspectRatio="xMidYMid meet" className="style-scope yt-icon">
@@ -143,5 +146,23 @@ export const IconVid = () => (
     width="24"
     alt=""
     src="https://yt3.ggpht.com/ufhVYBngofImEcz6EVRnw3carmWX5Rslj-2W-GYWmGZ0eGxTI9nyq25Ugu87l2CPg03I91FOrA=s88-c-k-c0x00ffffff-no-rj"
+  />
+)
+
+export const IconVisual = () => (
+  <img
+    alt=""
+    className="ytd-banner-promo-renderer-inline-image style-scope ytd-banner-promo-renderer"
+    src="https://www.gstatic.com/youtube/img/promos/growth/8710ab73762a16afef8c5d8a0b69c7a7bec473b559ca9d7f449c3a3b9cdccc46_2560x520.jpeg"
+  />
+)
+
+export const IconYoutubeMusic = () => (
+  <img
+    id="img"
+    className="style-scope yt-img-shadow"
+    alt=""
+    height="24"
+    src="https://www.gstatic.com/youtube/img/promos/growth/1263f05576c9f137587330f92e03e0a725f426fd9d40d28a8942692dc8f6b210_640x48.png"
   />
 )
