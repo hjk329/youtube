@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getVideos } from '../redux/slice';
 import VideoList from '../../shared/components/List/VideoList';
+import Visual from '../components/Visual';
 
 const HomeContainer = () => {
   const dispatch = useDispatch()
@@ -21,8 +22,16 @@ const HomeContainer = () => {
   useEffect(() => {
     getVideo()
   }, [])
+  const [showVisual, setShowVisual] = useState(true)
+  const onClose = () => {
+    setShowVisual(false)
+  }
   return (
     <Container>
+      {
+        showVisual
+        && <Visual onClose={onClose} />
+      }
       <VideoList data={video} />
     </Container>
   )
