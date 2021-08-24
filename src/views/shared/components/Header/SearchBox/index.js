@@ -1,30 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {MdMic, MdSearch} from "react-icons/all";
-import {DefaultButton} from "../../Button/StyledButton";
+import { MdMic, MdSearch } from 'react-icons/all';
 
-const SearchBox = () => {
-    return (
-        <Container>
-            <Form>
-                <Label>
-                    <Input placeholder={"검색"}/>
-                    {/*<span>*/}
-                    {/*    <img src="//www.gstatic.com/inputtools/images/tia.png" tia_field_name="search_query"*/}
-                    {/*         tia_disable_swap="true" tia_property="youtube" alt=""/>*/}
-                    {/*</span>*/}
-                </Label>
-                <SearchButton>
-                    <MdSearch/>
-                </SearchButton>
-            </Form>
-            <MicButton>
-                <MdMic/>
-            </MicButton>
-        </Container>
-    )
-}
+import { DefaultButton } from '../../Button/DefaultButton';
+
+const SearchBox = () => (
+  <Container>
+    <Form>
+      <Label>
+        <Input placeholder="검색" />
+        {/* <span> */}
+        {/* <img src="//www.gstatic.com/inputtools/images/tia.png" tia_field_name="search_query" */}
+        {/*  tia_disable_swap="true" tia_property="youtube" alt=""/> */}
+        {/* </span> */}
+      </Label>
+      <SearchButton>
+        <MdSearch />
+      </SearchButton>
+    </Form>
+    <MicButton>
+      <MdMic />
+    </MicButton>
+  </Container>
+)
 
 const Container = styled.div`
   display: flex;
@@ -59,7 +58,6 @@ const Input = styled.input`
   font-weight: 400;
   padding: 1px 6px;
 `;
-
 
 const SearchButton = styled(DefaultButton)`
     width: 51px;

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ActionButton = ({ children }) => (
+const Visual = () => (
   <Container>
-    {children}
+    Visual
   </Container>
 )
 
 const Container = styled.div`
 
 `;
-export default ActionButton;
+export default Visual;
