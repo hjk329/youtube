@@ -29,7 +29,12 @@ const Container = styled.div`
 `;
 
 const Thumb = styled.div`
-
+  img{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin: 12px 12px 0 0;
+  }
 `;
 
 const Desc = styled.div`
@@ -48,6 +53,8 @@ const Name = styled.div`
   font-weight: 400;
   color: rgb(96, 96, 96);
   transition: 0.3s;
+  line-height: 18px;
+
 
   &:hover {
     color: #333;

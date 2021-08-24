@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import VideoItem from '../Item/VideoItem';
 
-const VideoList = ({ data = [] }) => (
+const VideoList = ({ data = [] }, gutter) => (
   <Container>
     <Row>
       {
@@ -27,6 +27,7 @@ const Row = styled.div`
 `;
 
 const Col = styled.div`
-    width: 25%;
+  width: 25%;
+  padding: ${(p) => p.gutter ?? 10}px;
 `;
 export default VideoList;
