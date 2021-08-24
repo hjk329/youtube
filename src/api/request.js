@@ -5,6 +5,6 @@ export const API = {
 
   getChannel: (data) => request(requestConstants.GET, '/channels', data),
 
-  getCategories: (data) => request(requestConstants.GET, '/guideCategories', data),
+  getCategories: (data) => request(requestConstants.GET, '/videoCategories', data),
 
 }
