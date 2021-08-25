@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 import ScrollMenu from '../ScrollMenu';
 
 const Category = ({ categories = [] }) => (
@@ -14,10 +16,11 @@ const Category = ({ categories = [] }) => (
 const Container = styled.div`
   border-top: 1px solid #d1d1d1;
   border-bottom: 1px solid #d1d1d1;
+  height: 58px;
 
 `;
 
-const Title = styled.div`
+const Title = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;

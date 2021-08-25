@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Category from '../components/Category';
 import { getCategories } from '../redux/slice';
+import WideDesktopLayout from '../../../shared/components/Layout/WideDesktopLayout';
+import { WideDesktop } from '../../../../hooks/mediaQuery';
 
 const CategoriesContainer = () => {
   const dispatch = useDispatch()
@@ -19,7 +21,11 @@ const CategoriesContainer = () => {
   const categories = useSelector((state) => state.category.list)
   return (
     <Container>
-      <Category categories={categories.items} />
+      <WideDesktop>
+        <WideDesktopLayout>
+          <Category categories={categories.items} />
+        </WideDesktopLayout>
+      </WideDesktop>
     </Container>
   )
 }

@@ -68,14 +68,13 @@ const Center = styled.div`
 
 const Footer = styled.div`
   position: absolute;
-  bottom: 10px;
+  bottom: 0;
   left: 10px;
   padding: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 `;
 
 const JoinButton = styled.div`
-  width: 120px;
   border: 1px solid #fff;
   padding: 10px 16px;
   display: flex;

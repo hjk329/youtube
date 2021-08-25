@@ -52,7 +52,7 @@ const Container = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  height: 56px;
+  height: 58px;
   overflow: hidden;
 
   &::before,
