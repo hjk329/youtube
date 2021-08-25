@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { MdMenu } from 'react-icons/all';
 
-import Nav from './Nav';
-import { IconLogo } from '../../../../icons';
-import SearchBox from './SearchBox';
-import { DefaultButton } from '../Button/DefaultButton';
-import Sidebar from '../Sidebar';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Gnb = () => {
-  const [sidebar, setSidebar] = useState(true)
+import Nav from './Nav';
+import { IconLogo } from '../../../../../icons';
+import SearchBox from '../SearchBox';
+import { DefaultButton } from '../../Button/DefaultButton';
+import Shortcuts from '../../Sidebar/components/Shortcuts';
+import { showShortcuts } from '../../../redux/slice';
+
+const WideGnb = () => {
+  const dispatch = useDispatch()
+  const getShortcuts = () => {
+    dispatch(showShortcuts())
+  }
+  const shortcutsState = useSelector((state) => state.app.shortcuts)
   return (
     <Container>
       <Logo>
-        <Button className="side" onClick={() => setSidebar((v) => !v)}>
+        <Button className="side" onClick={getShortcuts}>
           {' '}
           <MdMenu />
           {' '}
@@ -28,8 +35,7 @@ const Gnb = () => {
       <SearchBox />
       <Nav />
       {
-        sidebar
-                    && <Sidebar />
+        shortcutsState && <Shortcuts />
       }
     </Container>
   )
@@ -41,7 +47,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  
+
 `;
 
 const Logo = styled.div`
@@ -51,6 +57,8 @@ const Logo = styled.div`
 `;
 
 const Button = styled(DefaultButton)`
+  cursor: pointer;
+
   &.side {
     padding: 8px;
 
@@ -67,4 +75,4 @@ const Button = styled(DefaultButton)`
 
 `;
 
-export default Gnb;
+export default WideGnb;

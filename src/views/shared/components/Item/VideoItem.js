@@ -39,7 +39,7 @@ const VideoItem = ({ item }) => {
 }
 
 const Container = styled.div`
-  margin: 0 8px 40px;
+  margin: 0 8px 20px;
 
 `;
 

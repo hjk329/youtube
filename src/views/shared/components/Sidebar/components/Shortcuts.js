@@ -5,7 +5,7 @@ import {
   MdExplore, MdHome, MdRestore, MdSubscriptions, MdVideoLibrary,
 } from 'react-icons/all';
 
-const Shortcuts = () => (
+const Shortcuts = ({ show }) => (
   <Container>
     <IconBox>
       <Icon>
@@ -38,9 +38,9 @@ const Container = styled.div`
   position: fixed;
   left : 0;
   top: 56px;
-  z-index: -1;
   width: 72px;
-  
+  height: 100%;
+  background: #fff;
 `;
 
 const IconBox = styled.div`
