@@ -6,14 +6,18 @@ const homeSlice = createSlice({
   name: 'home',
   initialState: {
     video: [],
+    nextToken: [],
   },
   reducers: {
     setVideos: (state, { payload }) => {
       state.video = payload;
     },
+    setNextPageToken: (state, { payload }) => {
+      state.nextToken = payload;
+    },
   },
 })
 
-export const { setVideos } = homeSlice.actions;
+export const { setVideos, setNextPageToken } = homeSlice.actions;
 
 export default homeSlice.reducer;

@@ -20,10 +20,10 @@ const Visual = ({ onClose }) => (
           <JoinButton>지금 가입하기</JoinButton>
         </Footer>
       </Text>
+      <Button onClick={onClose}>
+        <MdClose />
+      </Button>
     </ImageBox>
-    <Button onClick={onClose}>
-      <MdClose />
-    </Button>
   </Container>
 )
 

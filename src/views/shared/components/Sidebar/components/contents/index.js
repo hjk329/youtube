@@ -116,25 +116,12 @@ const Contents = () => (
 )
 
 const Container = styled.div`
-
-`;
-
-const Logo = styled.div`
-  display: flex;
-  height: 56px;
-  align-items: center;
-  padding: 0 16px;
-
-`;
-
-const Button = styled.div`
-  padding: 8px;
-    svg {
-      width: 24px;
-      height: 24px;
-      fill: rgb(96, 96, 96);
-    }
-
+  position: absolute;
+  top:0;
+  left : 0;
+  bottom:0;
+  width: 240px;
+  z-index: 100;
 `;
 
 const MenuBox = styled.div`

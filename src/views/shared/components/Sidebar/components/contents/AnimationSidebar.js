@@ -131,7 +131,7 @@ const AnimationSidebar = ({ sidebar, getAnimationSidebar }) => (
 
 const Container = styled.div`
   position: fixed;
-  width: 200px;
+  width: 240px;
   border-right: 1px solid #000;
   top:0;
   left:0;

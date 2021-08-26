@@ -9,11 +9,12 @@ const IconButton = ({ icon, text, size }) => (
   </Container>
 )
 
-const Container = styled(Link)`
+const Container = styled.div`
   display: flex;
   align-items: center;
   height: 40px;
   padding: 12px 24px;
+  transition: 0.2s;
   &:hover {
     background: rgba(0,0,0, 0.05);
   }

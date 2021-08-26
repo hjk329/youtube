@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
 import AvatarInfo from '../AvatarInfo';
+import RatioBox from '../RatioBox';
 
 const VideoItem = ({ item }) => {
   const {
@@ -17,14 +18,15 @@ const VideoItem = ({ item }) => {
 
   return (
     <Container>
-      <ContentBox className="box">
-        <Screen>
-          <Button><MdAccessTime /></Button>
-          <Button><MdPlaylistPlay /></Button>
-        </Screen>
-        <Thumb>
+      <ContentBox>
+        <RatioBox width={244} height={137}>
           <img src={snippet.thumbnails.medium.url} alt="" />
-        </Thumb>
+          <Screen>
+            <Button><MdAccessTime /></Button>
+            <Button><MdPlaylistPlay /></Button>
+          </Screen>
+        </RatioBox>
+
         <Desc>
           <AvatarInfo
             imageUrl={channel.thumbnails.medium.url}
@@ -54,9 +56,13 @@ const ContentBox = styled.div`
   }
 `;
 
-const Thumb = styled.div`
-
-`;
+// const Thumb = styled.div`
+//   background: #aaa;
+//   img {
+//      width: 100%;
+//     object-fit: cover;
+//   }
+// `;
 
 const Screen = styled.div`
   position: absolute;

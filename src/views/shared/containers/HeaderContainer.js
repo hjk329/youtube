@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 import { useSelector } from 'react-redux';
 
-import WideGnb from '../components/Header/Gnb/WideGnb';
+import ShortcutsContainer from './ShorcutsContainer';
 import Shortcuts from '../components/Sidebar/components/Shortcuts';
 import {
   Desktop, Mobile, Tablet, WideDesktop,
 } from '../../../hooks/mediaQuery';
 import Sidebar from '../components/Sidebar';
-import NarrowGnb from '../components/Header/Gnb/NarrowGnb';
+import AnimationSidebarContainer from './AnimationSidebarContainer';
 
 const HeaderContainer = () => {
   const shortcutsState = useSelector((state) => state.app.shortcuts)
@@ -18,20 +18,24 @@ const HeaderContainer = () => {
 
     <Container>
       <WideDesktop>
-        <WideGnb />
+        <ShortcutsContainer />
         {
           !shortcutsState
           && <Sidebar />
         }
       </WideDesktop>
       <Desktop>
-        <NarrowGnb />
+        <AnimationSidebarContainer />
         <Shortcuts />
       </Desktop>
       <Tablet>
-        <NarrowGnb />
+        <AnimationSidebarContainer />
         <Shortcuts />
       </Tablet>
+      <Mobile>
+        <AnimationSidebarContainer />
+        <Shortcuts />
+      </Mobile>
     </Container>
   )
 }
