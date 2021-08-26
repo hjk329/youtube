@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getVideos } from '../redux/slice';
-import VideoList from '../../shared/components/List/VideoList';
+import VideoList from '../components/List/VideoList';
 import Visual from '../components/Visual';
 import {
   Desktop, Mobile, Tablet, WideDesktop,
@@ -12,6 +12,7 @@ import WideDesktopLayout from '../../shared/components/Layout/WideDesktopLayout'
 import DesktopLayout from '../../shared/components/Layout/DesktopLayout';
 import { useIntersection } from '../../../hooks/useIntersection';
 import IosLoader from '../../shared/components/Loader/IosLoader';
+import HeaderContainer from '../../shared/containers/HeaderContainer';
 
 const HomeContainer = () => {
   const dispatch = useDispatch()
@@ -50,6 +51,7 @@ const HomeContainer = () => {
 
   return (
     <Container>
+      <HeaderContainer />
       <WideDesktop>
         <WideDesktopLayout>
           {

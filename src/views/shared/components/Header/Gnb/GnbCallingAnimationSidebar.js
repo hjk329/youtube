@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdMenu } from 'react-icons/all';
 
+import { Link } from 'react-router-dom';
+
 import { IconLogo } from '../../../../../icons';
 import SearchBox from '../SearchBox';
 import Nav from './Nav';
 import AnimationSidebar from '../../Sidebar/components/contents/AnimationSidebar';
-import { DefaultButton } from '../../Button/DefaultButton';
 
 const GnbCallingAnimationSidebar = ({ getAnimationSidebar, animationSidebarStatus }) => (
   <Container>
@@ -16,7 +17,7 @@ const GnbCallingAnimationSidebar = ({ getAnimationSidebar, animationSidebarStatu
         <MdMenu />
         {' '}
       </Button>
-      <Button className="logo">
+      <Button className="logo" to="/">
         {' '}
         <IconLogo />
         {' '}
@@ -43,7 +44,8 @@ const Logo = styled.div`
   height: 56px;
 `;
 
-const Button = styled(DefaultButton)`
+const Button = styled(Link)`
+  display: block;
   cursor: pointer;
 
   &.side {

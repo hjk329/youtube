@@ -10,10 +10,9 @@ import Watch from './pages/Watch';
 const App = () => (
   <Container>
     <GlobalStyle />
-    <HeaderContainer />
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/watch" component={Watch} />
+      <Route exact path="/watch/:id" component={Watch} />
 
     </Switch>
   </Container>
