@@ -25,6 +25,7 @@ const NavItem = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 40px;
   padding: 8px;
   margin: 0 4px;
     svg {

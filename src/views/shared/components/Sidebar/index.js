@@ -10,10 +10,6 @@ const Sidebar = () => (
 )
 
 const Container = styled.div`
-  position: absolute;
-  top:57px;
-  left : 0;
-  width: 240px;
-  background: rgba(0,0,0,0.1);
+  position: relative;
 `;
 export default Sidebar;
