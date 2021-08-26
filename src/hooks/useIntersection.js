@@ -18,7 +18,9 @@ export const useIntersection = () => {
       observer.observe(sentinelRef.current);
     }
     return () => {
-      observer.unobserve(sentinelRef.current);
+      if (sentinelRef.current) {
+        observer.unobserve(sentinelRef.current);
+      }
     }
   }, [])
 

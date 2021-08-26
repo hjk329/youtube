@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
-import AvatarInfo from '../AvatarInfo';
-import RatioBox from '../RatioBox';
+import AvatarInfo from '../../../shared/components/AvatarInfo';
+import RatioBox from '../../../shared/components/RatioBox';
 
 const VideoItem = ({ item }) => {
   const {
+    id,
     snippet,
     statistics,
     contentDetails,
@@ -18,7 +19,7 @@ const VideoItem = ({ item }) => {
 
   return (
     <Container>
-      <ContentBox>
+      <ContentBox to={`/watch/${id}`}>
         <RatioBox width={244} height={137}>
           <img src={snippet.thumbnails.medium.url} alt="" />
           <Screen>
@@ -32,7 +33,8 @@ const VideoItem = ({ item }) => {
             imageUrl={channel.thumbnails.medium.url}
             title={snippet.title}
             name={snippet.channelTitle}
-            details={statistics.viewCount}
+            views={statistics.viewCount}
+            published={snippet.publishedAt}
           />
         </Desc>
       </ContentBox>
@@ -45,7 +47,7 @@ const Container = styled.div`
 
 `;
 
-const ContentBox = styled.div`
+const ContentBox = styled(Link)`
   position: relative;
   cursor: pointer;
 
@@ -55,14 +57,6 @@ const ContentBox = styled.div`
     }
   }
 `;
-
-// const Thumb = styled.div`
-//   background: #aaa;
-//   img {
-//      width: 100%;
-//     object-fit: cover;
-//   }
-// `;
 
 const Screen = styled.div`
   position: absolute;

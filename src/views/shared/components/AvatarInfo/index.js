@@ -7,7 +7,8 @@ const AvatarInfo = ({
   imageUrl,
   title,
   name,
-  details,
+  views,
+  published,
 }) => (
   <Container>
     <Thumb>
@@ -18,7 +19,8 @@ const AvatarInfo = ({
       <Name>{name}</Name>
       <Details>
         조회수
-        {formatNumber(details)}
+        {formatNumber(views)}
+        <span />
       </Details>
     </Desc>
   </Container>
@@ -65,5 +67,16 @@ const Details = styled.div`
   font-size: 14px;
   font-weight: 400;
   color: rgb(96, 96, 96);
+  
+  span {
+    display: inline-block;
+    position: relative;
+    bottom : 3px;
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    margin-left: 2px;
+    background: rgb(96, 96, 96);
+  }
 `;
 export default AvatarInfo;
