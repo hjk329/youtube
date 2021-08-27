@@ -6,15 +6,15 @@ import { setWatchVideo, watchVideo } from './slice';
 import { API } from '../../../api/request';
 
 function* watchVideoSaga({ payload }) {
-  const video = yield call(API.watchVideoItem, payload)
+  const video = yield call(API.getVideos, payload)
   const result = yield all(video.data.items.map(async (item) => {
     const channelResult = await API.getChannel({
       id: item.snippet.channelId,
-      part: 'snippet',
+      part: 'snippet, statistics',
     })
     return {
       ...item,
-      channel: channelResult.data.items[0].snippet,
+      channel: channelResult.data.items[0],
     }
   }))
   yield put(setWatchVideo(result))

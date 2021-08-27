@@ -2,11 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {
+  MdMoreHoriz,
   MdPlaylistAdd, MdReply, MdThumbDown, MdThumbUp,
 } from 'react-icons/all';
 
-import { formatDate, formatThousandDigit1 } from '../../../lib/common';
-import IconButton from '../../shared/components/Button/IconButton';
+import { Link } from 'react-router-dom';
+
+import { formatDate, formatThousandDigit1 } from '../../../../lib/common';
+import IconButton from '../../../shared/components/Button/IconButton';
 
 const VideoInfo = ({ info }) => {
   const {
@@ -28,6 +31,8 @@ const VideoInfo = ({ info }) => {
               .toLocaleString('ko-KR') || '--'}
             회
           </Info>
+          <Info><span /></Info>
+
           <Info>
             {formatDate(snippet.publishedAt)}
           </Info>
@@ -48,6 +53,9 @@ const VideoInfo = ({ info }) => {
           <Icon>
             <MdPlaylistAdd />
             저장
+          </Icon>
+          <Icon>
+            <MdMoreHoriz />
           </Icon>
         </Item>
       </Details>
@@ -81,16 +89,26 @@ const Info = styled.div`
   font-size: 14px;
   font-weight: 400;
   color: rgb(96, 96, 96);
+  margin-right: 4px;
+  span {
+    position: relative;
+    bottom: 2px;
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgb(96, 96, 96);
+  }
 `;
 
-const Icon = styled.div`
+const Icon = styled(Link)`
   display: flex;
   align-items: center;
   height: 40px;
   font-size: 14px;
   font-weight: 500;
   color: rgb(3, 3, 3);
-  padding-right: 6px;
+  padding: 0 6px 0 8px;
   
   svg {
     width: 24px;
