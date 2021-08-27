@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import RatioBox from '../../shared/components/RatioBox';
+import RatioBox from '../../../shared/components/RatioBox';
 
 const VideoBox = ({ id }) => (
   <Container>
