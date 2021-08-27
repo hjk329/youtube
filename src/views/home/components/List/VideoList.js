@@ -8,7 +8,7 @@ const VideoList = ({ data = [] }, gutter) => (
     <Row>
       {
         data.map((item, index) => (
-          <Col key={item.id}>
+          <Col>
             <VideoItem item={item} />
           </Col>
         ))
