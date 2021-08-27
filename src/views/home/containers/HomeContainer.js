@@ -24,7 +24,7 @@ const HomeContainer = () => {
     dispatch(getVideos({
       part: 'snippet, statistics, id, contentDetails',
       chart: 'mostPopular',
-      maxResults: '8',
+      maxResults: '16',
       regionCode: 'KR',
       pageToken: nextPageToken,
     }))

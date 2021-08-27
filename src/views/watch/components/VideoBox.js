@@ -1,21 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ShowVideo = ({ id }) => (
+import RatioBox from '../../shared/components/RatioBox';
+
+const VideoBox = ({ id }) => (
   <Container>
-    <Inner>
+    <RatioBox width={4} height={3}>
       <iframe src={`https://www.youtube.com/embed/${id}`} title="video" frameBorder="0" />
-    </Inner>
+    </RatioBox>
   </Container>
 )
 
 const Container = styled.div`
 
 `;
-
-const Inner = styled.div`
-    iframe {
-      
-    }
-`;
-export default ShowVideo;
+export default VideoBox;

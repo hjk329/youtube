@@ -20,7 +20,7 @@ const VideoItem = ({ item }) => {
   return (
     <Container>
       <ContentBox to={`/watch/${id}`}>
-        <RatioBox width={244} height={137}>
+        <RatioBox width={4} height={3}>
           <img src={snippet.thumbnails.medium.url} alt="" />
           <Screen>
             <Button><MdAccessTime /></Button>
