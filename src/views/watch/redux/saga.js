@@ -32,12 +32,7 @@ function* getCommentsSaga({ payload }) {
   const { nextPageToken } = result.data
   yield put(setNextPageToken(nextPageToken))
   const state = yield select()
-  const prevComments = state.watch
-  const add = {
-    ...prevComments,
-    ...result.data,
-  }
-  console.log(add)
+  const prevComments = state.watch.comments
   console.log(prevComments)
   console.log(result.data)
   yield put(setComments({
@@ -48,7 +43,6 @@ function* getCommentsSaga({ payload }) {
 
 function* setRelatedVideosSaga({ payload }) {
   const result = yield call(API.getVideos, payload)
-  console.log(result.data)
   yield put(setRelatedVideos(result.data))
 }
 

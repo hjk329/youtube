@@ -11,7 +11,7 @@ const WatchVideoContainer = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
 
-  const info = useSelector((state) => state.watch.result)
+  const info = useSelector((state) => state.watch.result[0])
 
   const videoItem = () => {
     dispatch(watchVideo({
