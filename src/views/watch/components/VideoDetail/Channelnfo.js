@@ -18,6 +18,7 @@ const ChannelInfo = () => {
           imageUrl={channel.snippet.thumbnails.medium}
           name={channel.snippet.title}
           subscriptions={channel.statistics.subscriberCount}
+          channel={channel}
         />
         <Button>구독</Button>
       </Top>

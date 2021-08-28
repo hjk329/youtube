@@ -2,7 +2,9 @@ import {
   takeLatest, call, put, all,
 } from 'redux-saga/effects'
 
-import { setWatchVideo, watchVideo } from './slice';
+import {
+  getComments, setComments, setWatchVideo, watchVideo,
+} from './slice';
 import { API } from '../../../api/request';
 
 function* watchVideoSaga({ payload }) {
@@ -20,8 +22,14 @@ function* watchVideoSaga({ payload }) {
   yield put(setWatchVideo(result))
 }
 
+function* getCommentsSaga({ payload }) {
+  const result = yield call(API.getComments, payload)
+  yield put(setComments(result.data))
+}
+
 function* saga() {
   yield takeLatest(watchVideo.type, watchVideoSaga)
+  yield takeLatest(getComments.type, getCommentsSaga)
 }
 
 export default saga;

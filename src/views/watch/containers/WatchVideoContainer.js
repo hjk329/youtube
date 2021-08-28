@@ -7,7 +7,7 @@ import _ from 'lodash';
 import { watchVideo } from '../redux/slice';
 import VideoDetail from '../components/VideoDetail';
 
-const ShowVideoContainer = () => {
+const WatchVideoContainer = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
 
@@ -37,4 +37,4 @@ const Container = styled.div`
 
 `;
 
-export default ShowVideoContainer;
+export default WatchVideoContainer;

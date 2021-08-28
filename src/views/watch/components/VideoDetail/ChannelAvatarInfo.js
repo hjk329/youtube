@@ -1,17 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import { formatNumber } from '../../../../lib/common';
+import { Link } from 'react-router-dom';
 
 const ChannelAvatarInfo = ({
   imageUrl,
   title,
   name,
   subscriptions,
-  published,
+  channel,
 }) => (
   <Container>
-    <Thumb>
+    <Thumb to={`/channel/${channel.id}`}>
       <img src={imageUrl} alt="" />
     </Thumb>
     <Desc>
@@ -31,7 +30,8 @@ const Container = styled.div`
   display: flex;
 `;
 
-const Thumb = styled.div`
+const Thumb = styled(Link)`
+  display: block;
   img{
     width: 36px;
     height: 36px;
@@ -44,7 +44,8 @@ const Desc = styled.div`
 
 `;
 
-const Title = styled.div`
+const Title = styled(Link)`
+  display: block;
   margin: 12px 0 6px;
   font-size: 14px;
   font-weight: 700;

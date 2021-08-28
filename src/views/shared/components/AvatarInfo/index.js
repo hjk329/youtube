@@ -9,6 +9,7 @@ const AvatarInfo = ({
   name,
   views,
   published,
+  comments,
 }) => (
   <Container>
     <Thumb>
@@ -17,11 +18,26 @@ const AvatarInfo = ({
     <Desc>
       <Title>{title}</Title>
       <Name>{name}</Name>
-      <Details>
-        조회수
-        {formatNumber(views)}
-        <span />
-      </Details>
+
+      {
+        views
+        && (
+          <Details>
+            조회수
+            {' '}
+            {formatNumber(views)}
+          </Details>
+        )
+      }
+      {
+        comments
+          && (
+            <Details>
+              <p>{comments}</p>
+            </Details>
+          )
+
+      }
     </Desc>
   </Container>
 )
@@ -78,5 +94,11 @@ const Details = styled.div`
     margin-left: 2px;
     background: rgb(96, 96, 96);
   }
+`;
+
+const Published = styled.div`
+    color: rgb(170, 170, 170);
+  font-size: 12px;
+  font-weight: 400;
 `;
 export default AvatarInfo;
