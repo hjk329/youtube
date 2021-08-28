@@ -47,16 +47,18 @@ const Container = styled.div`
 `;
 
 const Thumb = styled.div`
+  flex-shrink: 0;
   img {
     width: 40px;
     height: 40px;
     object-fit: cover;
     border-radius: 50%;
-    margin-right: 16px;
   }
 `;
 
 const Desc = styled.div`
+  flex: 1;
+  margin-left: 16px;
 
 `;
 
