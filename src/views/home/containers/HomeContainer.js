@@ -20,17 +20,17 @@ const HomeContainer = () => {
   const video = useSelector((state) => state.home.video)
   const nextPageToken = useSelector((state) => state.home.nextToken)
 
+  const [pageToken, setPageToken] = useState(nextPageToken)
+
   const getVideo = () => {
     dispatch(getVideos({
       part: 'snippet, statistics, id, contentDetails',
       chart: 'mostPopular',
       maxResults: '16',
       regionCode: 'KR',
-      pageToken: nextPageToken,
+      pageToken,
     }))
   }
-
-  const [pageToken, setPageToken] = useState(nextPageToken)
 
   useEffect(() => {
     getVideo()

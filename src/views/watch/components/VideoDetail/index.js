@@ -7,7 +7,7 @@ import VideoInfo from './VideoInfo';
 import GetCommentsContainer from '../../containers/GetCommentsContainer';
 import RelatedVideosContainer from '../../containers/RelatedVideosContainer';
 
-const VideoDetail = ({ info = [], id }) => (
+const VideoDetail = ({ info, id }) => (
 
   <Container>
     <Left>
@@ -36,5 +36,9 @@ const Right = styled.div`
  flex-shrink: 1;
   flex-grow: 1;
   padding: 24px 0 0 0;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 `;
 export default VideoDetail;

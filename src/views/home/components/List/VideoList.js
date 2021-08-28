@@ -28,6 +28,9 @@ const Row = styled.div`
 
 const Col = styled.div`
   width: 25%;
+  @media screen and (max-width: 1127px) {
+    width: 33.3333%;
+  }
   padding: ${(p) => p.gutter ?? 10}px;
 `;
 export default VideoList;

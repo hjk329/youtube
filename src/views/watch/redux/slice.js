@@ -7,7 +7,7 @@ export const getRelatedVideos = createAction('watch/getRelatedVideos')
 const watchSlice = createSlice({
   name: 'watch',
   initialState: {
-    result: [],
+    result: {},
     comments: {
       nextPageToken: {},
     },

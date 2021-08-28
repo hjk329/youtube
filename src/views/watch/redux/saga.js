@@ -32,22 +32,30 @@ function* getCommentsSaga({ payload }) {
   const { nextPageToken } = result.data
   yield put(setNextPageToken(nextPageToken))
   const state = yield select()
-  const prevComments = state.watch.comments
+  const prevComments = state.watch
+  const add = {
+    ...prevComments,
+    ...result.data,
+  }
+  console.log(add)
+  console.log(prevComments)
+  console.log(result.data)
   yield put(setComments({
     ...prevComments,
     ...result.data,
   }))
 }
 
-function* getPlaylistsSaga({ payload }) {
+function* setRelatedVideosSaga({ payload }) {
   const result = yield call(API.getVideos, payload)
+  console.log(result.data)
   yield put(setRelatedVideos(result.data))
 }
 
 function* saga() {
   yield takeLatest(watchVideo.type, watchVideoSaga)
   yield takeLatest(getComments.type, getCommentsSaga)
-  yield takeLatest(getRelatedVideos.type, getPlaylistsSaga)
+  yield takeLatest(getRelatedVideos.type, setRelatedVideosSaga)
 }
 
 export default saga;
