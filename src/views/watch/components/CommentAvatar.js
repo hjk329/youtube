@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { MdThumbDown, MdThumbUp } from 'react-icons/all';
 
-import { formatNumber } from '../../../lib/common';
+import IconButton from '../../shared/components/Button/IconButton';
 
 const CommentAvatar = ({
   imageUrl,
@@ -25,7 +26,17 @@ const CommentAvatar = ({
         </Published>
       </Name>
       <Comment>{comment}</Comment>
-
+      <Response>
+        <Icon>
+          <MdThumbUp />
+        </Icon>
+        <Count>
+          {like}
+        </Count>
+        <Icon>
+          <MdThumbDown />
+        </Icon>
+      </Response>
     </Desc>
   </Container>
 )
@@ -53,7 +64,7 @@ const Name = styled.div`
   display: flex;
   font-size: 13px;
   font-weight: 500;
-  color: rgb(3,3,3);
+  color: rgb(3, 3, 3);
   transition: 0.3s;
   line-height: 18px;
 
@@ -73,5 +84,25 @@ const Published = styled.div`
   font-weight: 400;
   color: #606060;
   margin: 0 0 2px 4px;
+`;
+
+const Response = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Icon = styled.div`
+  padding: 8px;
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+const Count = styled.div`
+  margin-right: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #606060;
 `;
 export default CommentAvatar;

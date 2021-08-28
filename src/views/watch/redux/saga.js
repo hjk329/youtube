@@ -1,9 +1,9 @@
 import {
-  takeLatest, call, put, all,
+  takeLatest, call, put, all, select,
 } from 'redux-saga/effects'
 
 import {
-  getComments, setComments, setWatchVideo, watchVideo,
+  getComments, getPlaylists, setComments, setNextPageToken, setPlaylists, setWatchVideo, watchVideo,
 } from './slice';
 import { API } from '../../../api/request';
 
@@ -24,12 +24,25 @@ function* watchVideoSaga({ payload }) {
 
 function* getCommentsSaga({ payload }) {
   const result = yield call(API.getComments, payload)
-  yield put(setComments(result.data))
+  const { nextPageToken } = result.data
+  yield put(setNextPageToken(nextPageToken))
+  const state = yield select()
+  const prevComments = state.watch.comments
+  yield put(setComments({
+    ...prevComments,
+    ...result.data,
+  }))
+}
+
+function* getPlaylistsSaga({ payload }) {
+  const result = yield call(API.getPlaylists, payload)
+  yield put(setPlaylists(result.data))
 }
 
 function* saga() {
   yield takeLatest(watchVideo.type, watchVideoSaga)
   yield takeLatest(getComments.type, getCommentsSaga)
+  yield takeLatest(getPlaylists.type, getPlaylistsSaga)
 }
 
 export default saga;

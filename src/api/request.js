@@ -9,4 +9,6 @@ export const API = {
 
   getCategories: (data) => request(requestConstants.GET, '/videoCategories', data),
 
+  getPlaylists: (data) => request(requestConstants.GET, '/playlists', data),
+
 }
