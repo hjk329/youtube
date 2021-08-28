@@ -5,6 +5,8 @@ export const API = {
 
   getChannel: (data) => request(requestConstants.GET, '/channels', data),
 
+  getComments: (data) => request(requestConstants.GET, '/commentThreads', data),
+
   getCategories: (data) => request(requestConstants.GET, '/videoCategories', data),
 
 }

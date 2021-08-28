@@ -1,9 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Comments = () => (
+import AvatarInfo from '../../../shared/components/AvatarInfo';
+import CommentList from '../List/CommentList';
+
+const Comments = ({ comments = [] }) => (
   <Container>
-    Comments
+    {/* <AvatarInfo */}
+    {/*  imageUrl={comment.authorProfileImageUrl} */}
+    {/*  name={comment.authorDisplayName} */}
+    {/*  comments={comment.textDisplay} */}
+    {/* /> */}
   </Container>
 )
 

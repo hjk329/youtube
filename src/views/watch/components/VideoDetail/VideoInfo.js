@@ -9,7 +9,6 @@ import {
 import { Link } from 'react-router-dom';
 
 import { formatDate, formatThousandDigit1 } from '../../../../lib/common';
-import IconButton from '../../../shared/components/Button/IconButton';
 
 const VideoInfo = ({ info }) => {
   const {
@@ -35,6 +34,7 @@ const VideoInfo = ({ info }) => {
 
           <Info>
             {formatDate(snippet.publishedAt)}
+            .
           </Info>
         </Item>
         <Item>

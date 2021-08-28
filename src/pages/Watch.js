@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ShowVideoContainer from '../views/watch/containers/ShowVideoContainer';
+import WatchVideoContainer from '../views/watch/containers/WatchVideoContainer';
 import AnimationSidebarContainer from '../views/shared/containers/AnimationSidebarContainer';
 
 const Watch = () => (
   <Container>
     <AnimationSidebarContainer />
-    <ShowVideoContainer />
+    <WatchVideoContainer />
   </Container>
 )
 

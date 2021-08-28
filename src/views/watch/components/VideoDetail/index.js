@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import VideoBox from './VideoBox';
 import ChannelInfo from './Channelnfo';
-import Comments from './Comments';
 import RelatedVideos from './RelatedVideos';
 import VideoInfo from './VideoInfo';
+import GetCommentsContainer from '../../containers/GetCommentsContainer';
 
 const VideoDetail = ({ video = [], id }) => (
 
@@ -14,7 +14,7 @@ const VideoDetail = ({ video = [], id }) => (
       <VideoBox id={id} />
       <VideoInfo info={video} />
       <ChannelInfo />
-      <Comments />
+      <GetCommentsContainer videoId={id} />
     </Content>
     <Content>
       <RelatedVideos />
