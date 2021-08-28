@@ -3,7 +3,12 @@ import {
 } from 'redux-saga/effects'
 
 import {
-  getComments, getPlaylists, setComments, setNextPageToken, setPlaylists, setWatchVideo, watchVideo,
+  getComments,
+  getRelatedVideos,
+  setComments,
+  setNextPageToken, setRelatedVideos,
+  setWatchVideo,
+  watchVideo,
 } from './slice';
 import { API } from '../../../api/request';
 
@@ -35,14 +40,14 @@ function* getCommentsSaga({ payload }) {
 }
 
 function* getPlaylistsSaga({ payload }) {
-  const result = yield call(API.getPlaylists, payload)
-  yield put(setPlaylists(result.data))
+  const result = yield call(API.getVideos, payload)
+  yield put(setRelatedVideos(result.data))
 }
 
 function* saga() {
   yield takeLatest(watchVideo.type, watchVideoSaga)
   yield takeLatest(getComments.type, getCommentsSaga)
-  yield takeLatest(getPlaylists.type, getPlaylistsSaga)
+  yield takeLatest(getRelatedVideos.type, getPlaylistsSaga)
 }
 
 export default saga;

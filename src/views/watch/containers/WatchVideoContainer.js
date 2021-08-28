@@ -28,7 +28,7 @@ const WatchVideoContainer = () => {
 
   return (
     <Container>
-      <VideoDetail video={info} id={id} />
+      <VideoDetail info={info} id={id} />
     </Container>
   )
 }

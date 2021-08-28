@@ -21,7 +21,7 @@ const VideoItem = ({ item }) => {
     <Container>
       <ContentBox to={`/watch/${id}`}>
         <RatioBox width={4} height={3}>
-          <img src={snippet.thumbnails.medium.url} alt="" />
+          <img src={snippet?.thumbnails?.medium?.url} alt="" />
           <Screen>
             <Button><MdAccessTime /></Button>
             <Button><MdPlaylistPlay /></Button>
@@ -30,11 +30,11 @@ const VideoItem = ({ item }) => {
 
         <Desc>
           <AvatarInfo
-            imageUrl={channel.thumbnails.medium.url}
-            title={snippet.title}
-            name={snippet.channelTitle}
-            views={statistics.viewCount}
-            published={snippet.publishedAt}
+            imageUrl={channel?.thumbnails?.medium.url}
+            title={snippet?.title}
+            name={snippet?.channelTitle}
+            views={statistics?.viewCount}
+            published={snippet?.publishedAt}
           />
         </Desc>
       </ContentBox>

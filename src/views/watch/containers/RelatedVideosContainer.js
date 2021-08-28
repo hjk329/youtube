@@ -3,25 +3,28 @@ import styled from 'styled-components';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import RelatedVideos from '../components/VideoDetail/RelatedVideos';
-import { getPlaylists } from '../redux/slice';
+import RelatedVideosList from '../components/List/RelatedVideosList';
+import { getRelatedVideos } from '../redux/slice';
 
-const RelatedVideosContainer = ({ id }) => {
-  const result = useSelector((state) => state.watch.playlist)
-  console.log(result)
+const RelatedVideosContainer = ({ info }) => {
+  const videoCategoryId = info?.snippet?.categoryId
   const dispatch = useDispatch()
+  const relatedVideos = useSelector((state) => state.watch.related.items)
   const getPlaylist = () => {
-    dispatch(getPlaylists({
-      part: 'snippet',
-      id,
+    dispatch(getRelatedVideos({
+      part: 'snippet, topicDetails',
+      chart: 'mostPopular',
+      videoCategoryId,
+      maxResults: 50,
+      regionCode: 'KR',
     }))
   }
   useEffect(() => {
     getPlaylist()
-  }, [])
+  }, [videoCategoryId])
   return (
     <Container>
-      <RelatedVideos />
+      <RelatedVideosList video={relatedVideos} />
     </Container>
   )
 }

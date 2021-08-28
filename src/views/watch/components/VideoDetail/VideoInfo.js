@@ -19,32 +19,32 @@ const VideoInfo = ({ info }) => {
   return (
     <Container>
       <Title>
-        {snippet.title}
+        {snippet?.title}
       </Title>
       <Details>
         <Item>
           <Info>
             조회수
             {' '}
-            {Number(statistics.viewCount)
+            {Number(statistics?.viewCount)
               .toLocaleString('ko-KR') || '--'}
             회
           </Info>
           <Info><span /></Info>
 
           <Info>
-            {formatDate(snippet.publishedAt)}
+            {formatDate(snippet?.publishedAt)}
             .
           </Info>
         </Item>
         <Item>
           <Icon>
             <MdThumbUp />
-            {formatThousandDigit1(statistics.likeCount)}
+            {formatThousandDigit1(statistics?.likeCount)}
           </Icon>
           <Icon>
             <MdThumbDown />
-            {formatThousandDigit1(statistics.dislikeCount)}
+            {formatThousandDigit1(statistics?.dislikeCount)}
           </Icon>
           <Icon>
             <MdReply />

@@ -2,7 +2,7 @@ import { createSlice, createAction } from '@reduxjs/toolkit'
 
 export const watchVideo = createAction('watch/watchVideo')
 export const getComments = createAction('watch/getComments')
-export const getPlaylists = createAction('watch/getPlaylists')
+export const getRelatedVideos = createAction('watch/getRelatedVideos')
 
 const watchSlice = createSlice({
   name: 'watch',
@@ -11,7 +11,7 @@ const watchSlice = createSlice({
     comments: {
       nextPageToken: {},
     },
-    playlist: {},
+    related: {},
   },
   reducers: {
     setWatchVideo: (state, { payload }) => {
@@ -23,13 +23,13 @@ const watchSlice = createSlice({
     setNextPageToken: (state, { payload }) => {
       state.comments.nextPageToken = payload;
     },
-    setPlaylists: (state, { payload }) => {
-      state.playlist = payload;
+    setRelatedVideos: (state, { payload }) => {
+      state.related = payload;
     },
   },
 })
 
 export const {
-  setWatchVideo, setComments, setNextPageToken, setPlaylists,
+  setWatchVideo, setComments, setNextPageToken, setRelatedVideos,
 } = watchSlice.actions;
 export default watchSlice.reducer;

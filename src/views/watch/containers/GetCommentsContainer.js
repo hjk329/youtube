@@ -23,7 +23,7 @@ const GetCommentsContainer = ({ videoId }) => {
   }
   useEffect(() => {
     displayComments()
-  }, [pageToken])
+  }, [pageToken, videoId])
   useEffect(() => {
     if (inView) {
       setPageToken(nextPageToken)
