@@ -6,7 +6,7 @@ import {
 } from 'react-icons/all';
 
 const Shortcuts = () => (
-  <Container>
+  <Container className="Shortcuts">
     <IconBox>
       <Icon>
         {' '}
@@ -35,7 +35,7 @@ const Shortcuts = () => (
 )
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
   left : 0;
   top: 56px;
   width: 72px;

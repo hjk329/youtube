@@ -1,10 +1,7 @@
 import { createAction, createSlice } from '@reduxjs/toolkit';
 
 export const showShortcuts = createAction('app/showShortcuts')
-export const closeSidebar = createAction('app/closeSidebar')
-
 export const showAnimationSidebar = createAction('app/showAnimationSidebar')
-export const closeAnimationSidebar = createAction('app/closeAnimationSidebar')
 
 const sidebarSlice = createSlice({
   name: 'app',

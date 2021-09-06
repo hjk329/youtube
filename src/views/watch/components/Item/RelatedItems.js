@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
-import { useDispatch } from 'react-redux';
-
 import AvatarInfo from '../../../shared/components/AvatarInfo';
 import RatioBox from '../../../shared/components/RatioBox';
-import { showAnimationSidebar, showShortcuts } from '../../../shared/redux/slice';
 
-const VideoItem = ({ item }) => {
+const RelatedItems = ({ item }) => {
   const {
     id,
     snippet,
@@ -33,11 +30,10 @@ const VideoItem = ({ item }) => {
 
         <Desc>
           <AvatarInfo
-            imageUrl={channel?.thumbnails?.medium.url}
             title={snippet?.title}
             name={snippet?.channelTitle}
             views={statistics?.viewCount}
-            publishedAt={snippet?.publishedAt}
+            published={snippet?.publishedAt}
           />
         </Desc>
       </ContentBox>
@@ -50,7 +46,7 @@ const Container = styled.div`
 `;
 
 const ContentBox = styled(Link)`
-  display: block;
+  display: flex;
   position: relative;
   cursor: pointer;
 
@@ -85,4 +81,4 @@ const Desc = styled.div`
 
 `;
 
-export default VideoItem;
+export default RelatedItems;

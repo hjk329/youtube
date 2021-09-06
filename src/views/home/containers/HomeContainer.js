@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
+import cn from 'classnames';
 
 import { getVideos } from '../redux/slice';
 import VideoList from '../components/List/VideoList';
 import Visual from '../components/Visual';
-import {
-  Desktop, Mobile, Tablet, WideDesktop,
-} from '../../../hooks/mediaQuery';
-import WideDesktopLayout from '../../shared/components/Layout/WideDesktopLayout';
-import DesktopLayout from '../../shared/components/Layout/DesktopLayout';
+import { useMQ } from '../../../hooks/mediaQuery';
 import { useIntersection } from '../../../hooks/useIntersection';
 import IosLoader from '../../shared/components/Loader/IosLoader';
-import HeaderContainer from '../../shared/containers/HeaderContainer';
 
 const HomeContainer = () => {
   const dispatch = useDispatch()
@@ -21,6 +17,13 @@ const HomeContainer = () => {
   const nextPageToken = useSelector((state) => state.home.nextToken)
 
   const [pageToken, setPageToken] = useState(nextPageToken)
+  const {
+    isWideDesktop,
+    isDesktop,
+    isTablet,
+    isMobile,
+    isNotMobile,
+  } = useMQ()
 
   const getVideo = () => {
     dispatch(getVideos({
@@ -50,65 +53,36 @@ const HomeContainer = () => {
   }, [inView])
 
   return (
-    <Container>
-      <HeaderContainer />
-      <WideDesktop>
-        <WideDesktopLayout>
-          {
-            showVisual
+    <Container className={cn({
+      isWideDesktop,
+      isDesktop,
+      isTablet,
+      isMobile,
+      isNotMobile,
+    })}
+    >
+      {
+        showVisual
             && <Visual onClose={onClose} />
-          }
-          <VideoList data={video} />
-          <Sentinel ref={sentinelRef} />
-          {
-            inView && <IosLoader />
-          }
-        </WideDesktopLayout>
-      </WideDesktop>
-      <Desktop>
-        <DesktopLayout>
-          {
-            showVisual
-            && <Visual onClose={onClose} />
-          }
-          <VideoList data={video} />
-          <Sentinel ref={sentinelRef} />
-          {
-            inView && <IosLoader />
-          }
-        </DesktopLayout>
-      </Desktop>
-      <Tablet>
-        <DesktopLayout>
-          {
-            showVisual
-            && <Visual onClose={onClose} />
-          }
-          <VideoList data={video} />
-          {
-            inView && <IosLoader />
-          }
-        </DesktopLayout>
-      </Tablet>
-      <Mobile>
-        {
-          showVisual
-          && <Visual onClose={onClose} />
-        }
-        <VideoList data={video} />
-        <Sentinel ref={sentinelRef} />
-        {
-          inView && <IosLoader />
-        }
-      </Mobile>
+      }
+      <VideoList data={video} />
+      <Sentinel ref={sentinelRef} />
+      {
+        inView && <IosLoader />
+      }
 
     </Container>
   )
 }
 
 const Container = styled.div`
-  position: relative;
-
+  &.isWideDesktop {
+    padding: 56px 0 0 240px;
+  }
+  
+  &.isDesktop {
+    padding-left: 72px;
+  }
 `;
 
 const Sentinel = styled.div`

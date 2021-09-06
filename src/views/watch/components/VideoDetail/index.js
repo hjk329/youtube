@@ -4,17 +4,20 @@ import styled from 'styled-components';
 import VideoBox from './VideoBox';
 import ChannelInfo from './Channelnfo';
 import VideoInfo from './VideoInfo';
-import GetCommentsContainer from '../../containers/GetCommentsContainer';
 import RelatedVideosContainer from '../../containers/RelatedVideosContainer';
+import GetCommentsContainer from '../../containers/GetCommentsContainer';
 
-const VideoDetail = ({ info, id }) => (
+const VideoDetail = ({
+  info,
+  id,
+}) => (
 
   <Container>
     <Left>
       <VideoBox id={id} />
       <VideoInfo info={info} />
       <ChannelInfo />
-      <GetCommentsContainer videoId={id} />
+      <GetCommentsContainer info={info} />
     </Left>
     <Right>
       <RelatedVideosContainer info={info} />
@@ -24,18 +27,17 @@ const VideoDetail = ({ info, id }) => (
 
 const Container = styled.div`
   display: flex;
+  padding: 24px;
 
 `;
 
 const Left = styled.div`
-  margin: 0 0 0 24px;
-  padding: 24px 24px 0 0;
+  flex: 5;
 `;
 
 const Right = styled.div`
- flex-shrink: 1;
-  flex-grow: 1;
-  padding: 24px 0 0 0;
+  flex: 2;
+  padding-left: 24px;
 
   @media screen and (max-width: 1000px) {
     display: none;

@@ -4,12 +4,18 @@ import styled from 'styled-components';
 import Contents from './components/contents';
 
 const Sidebar = () => (
-  <Container>
+  <Container className="Sidebar">
     <Contents />
   </Container>
 )
 
 const Container = styled.div`
-  position: relative;
+  position: fixed;
+  top: 54px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  background: #fff; 
 `;
 export default Sidebar;

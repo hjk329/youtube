@@ -1,5 +1,21 @@
 import { useMediaQuery } from 'react-responsive';
 
+export const useMQ = () => {
+  const isWideDesktop = useMediaQuery({ minWidth: 1313 })
+  const isDesktop = useMediaQuery({ minWidth: 992, maxWidth: 1312 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isNotMobile = useMediaQuery({ minWidth: 768 })
+
+  return {
+    isWideDesktop,
+    isDesktop,
+    isTablet,
+    isMobile,
+    isNotMobile,
+  }
+}
+
 export const WideDesktop = ({ children }) => {
   const isWideDesktop = useMediaQuery({ minWidth: 1313 })
   return isWideDesktop ? children : null

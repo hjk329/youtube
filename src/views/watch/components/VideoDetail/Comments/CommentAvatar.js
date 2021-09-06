@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdThumbDown, MdThumbUp } from 'react-icons/all';
 
-import IconButton from '../../shared/components/Button/IconButton';
+import moment from 'moment';
 
 const CommentAvatar = ({
   imageUrl,
   name,
   comment,
   like,
-  published,
+  publishedAt,
 }) => (
   <Container>
     <Thumb>
@@ -19,10 +19,7 @@ const CommentAvatar = ({
       <Name>
         {name}
         <Published>
-          {' '}
-          {published}
-          {' '}
-          일전
+          {moment(publishedAt).fromNow()}
         </Published>
       </Name>
       <Comment>{comment}</Comment>

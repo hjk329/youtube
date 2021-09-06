@@ -13,6 +13,7 @@ const RatioBox = ({
 
 const Container = styled.div`
   position: relative;
+  flex: 1;
 `;
 
 const Inner = styled.div`

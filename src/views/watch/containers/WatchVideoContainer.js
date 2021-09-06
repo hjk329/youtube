@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams, useRouteMatch } from 'react-router-dom';
 import _ from 'lodash';
 
 import { watchVideo } from '../redux/slice';
 import VideoDetail from '../components/VideoDetail';
+import { showAnimationSidebar, showShortcuts } from '../../shared/redux/slice';
 
 const WatchVideoContainer = () => {
   const dispatch = useDispatch()

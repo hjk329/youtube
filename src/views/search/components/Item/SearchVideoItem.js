@@ -1,28 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
-
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
-import { useDispatch } from 'react-redux';
-
-import AvatarInfo from '../../../shared/components/AvatarInfo';
+import AvatarInfo from '../AvatarInfo';
 import RatioBox from '../../../shared/components/RatioBox';
-import { showAnimationSidebar, showShortcuts } from '../../../shared/redux/slice';
 
-const VideoItem = ({ item }) => {
+const SearchVideoItem = ({ item }) => {
   const {
     id,
     snippet,
-    statistics,
-    contentDetails,
     channel,
+    videoInfo,
   } = item;
-
   return (
     <Container>
-      <ContentBox to={`/watch/${id}`}>
+      <ContentBox to={`/watch/${id?.videoId}`}>
         <RatioBox width={4} height={3}>
           <img src={snippet?.thumbnails?.high?.url} alt="" />
           <Screen>
@@ -33,10 +26,10 @@ const VideoItem = ({ item }) => {
 
         <Desc>
           <AvatarInfo
-            imageUrl={channel?.thumbnails?.medium.url}
+            imageUrl={channel?.snippet?.thumbnails?.high.url}
             title={snippet?.title}
-            name={snippet?.channelTitle}
-            views={statistics?.viewCount}
+            name={channel?.snippet?.title}
+            views={videoInfo?.statistics?.viewCount}
             publishedAt={snippet?.publishedAt}
           />
         </Desc>
@@ -46,12 +39,11 @@ const VideoItem = ({ item }) => {
 }
 
 const Container = styled.div`
-
+  margin-top: 16px;
 `;
 
 const ContentBox = styled(Link)`
-  display: block;
-  position: relative;
+  display: flex;
   cursor: pointer;
 
   &:hover {
@@ -64,9 +56,8 @@ const ContentBox = styled(Link)`
 const Screen = styled.div`
   position: absolute;
   top: 0;
-  right:0;
+  right: 0;
   padding: 10px;
-
 `;
 
 const Button = styled.div`
@@ -78,11 +69,10 @@ const Button = styled.div`
     opacity: 0;
     transition: 0.2s;
   }
-
 `;
 
 const Desc = styled.div`
-
+ margin-left: 16px;
 `;
 
-export default VideoItem;
+export default SearchVideoItem;

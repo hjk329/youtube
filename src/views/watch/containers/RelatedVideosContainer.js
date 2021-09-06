@@ -9,7 +9,7 @@ import { getRelatedVideos } from '../redux/slice';
 const RelatedVideosContainer = ({ info }) => {
   const videoCategoryId = info?.snippet?.categoryId
   const dispatch = useDispatch()
-  const relatedVideos = useSelector((state) => state.watch.related.items)
+  const relatedVideos = useSelector((state) => state.watch.related)
   const getPlaylist = () => {
     dispatch(getRelatedVideos({
       part: 'snippet, topicDetails',

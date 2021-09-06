@@ -29,27 +29,37 @@ function* watchVideoSaga({ payload }) {
 
 function* getCommentsSaga({ payload }) {
   const result = yield call(API.getComments, payload)
-  const { nextPageToken } = result.data
-  yield put(setNextPageToken(nextPageToken))
   const state = yield select()
   const prevComments = state.watch.comments
-  console.log(prevComments)
-  console.log(result.data)
   yield put(setComments({
     ...prevComments,
     ...result.data,
+    items: [
+      ...(prevComments.items || []),
+      ...result.data.items,
+    ],
   }))
 }
 
-function* setRelatedVideosSaga({ payload }) {
-  const result = yield call(API.getVideos, payload)
-  yield put(setRelatedVideos(result.data))
+function* getRelatedVideosSaga({ payload }) {
+  const video = yield call(API.getVideos, payload)
+  const result = yield all(video.data.items.map(async (item) => {
+    const channelResult = await API.getChannel({
+      id: item.snippet.channelId,
+      part: 'snippet, statistics',
+    })
+    return {
+      ...item,
+      channel: channelResult.data.items[0],
+    }
+  }))
+  yield put(setRelatedVideos(result))
 }
 
 function* saga() {
   yield takeLatest(watchVideo.type, watchVideoSaga)
   yield takeLatest(getComments.type, getCommentsSaga)
-  yield takeLatest(getRelatedVideos.type, setRelatedVideosSaga)
+  yield takeLatest(getRelatedVideos.type, getRelatedVideosSaga)
 }
 
 export default saga;

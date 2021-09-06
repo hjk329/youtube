@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { showAnimationSidebar } from '../redux/slice';
-import GnbCallingAnimationSidebar from '../components/Header/Gnb/GnbCallingAnimationSidebar';
+import Gnb from '../components/Header/Gnb';
 
 const AnimationSidebarContainer = () => {
   const dispatch = useDispatch()
@@ -13,7 +13,7 @@ const AnimationSidebarContainer = () => {
   const animationSidebarStatus = useSelector((state) => state.app.animationSidebar)
   return (
     <Container>
-      <GnbCallingAnimationSidebar getAnimationSidebar={getAnimationSidebar} animationSidebarStatus={animationSidebarStatus} />
+      <Gnb getAnimationSidebar={getAnimationSidebar} animationSidebarStatus={animationSidebarStatus} />
     </Container>
   )
 }

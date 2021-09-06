@@ -1,29 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { MdMic, MdSearch } from 'react-icons/all';
 
+import { useHistory } from 'react-router-dom';
+
+import qs from 'qs';
+
 import { DefaultButton } from '../../Button/DefaultButton';
 
-const SearchBox = () => (
-  <Container>
-    <Form>
-      <Label>
-        <Input placeholder="검색" />
-        {/* <span> */}
-        {/* <img src="//www.gstatic.com/inputtools/images/tia.png" tia_field_name="search_query" */}
-        {/*  tia_disable_swap="true" tia_property="youtube" alt=""/> */}
-        {/* </span> */}
-      </Label>
-      <SearchButton>
-        <MdSearch />
-      </SearchButton>
-    </Form>
-    <MicButton>
-      <MdMic />
-    </MicButton>
-  </Container>
-)
+const SearchBox = () => {
+  const history = useHistory()
+
+  const [query, setQuery] = useState('')
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    history.push(`/results/${qs.stringify({
+      search_query: query,
+    })}`)
+  }
+
+  const onChange = (e) => {
+    setQuery(e.target.value)
+  }
+  return (
+    <Container>
+      <Form onSubmit={onSubmit}>
+        <Label>
+          <Input
+            value={query}
+            onChange={onChange}
+            placeholder="검색"
+          />
+        </Label>
+        <SearchButton>
+          <MdSearch />
+        </SearchButton>
+      </Form>
+      <MicButton>
+        <MdMic />
+      </MicButton>
+    </Container>
+  )
+}
 
 const Container = styled.div`
   display: flex;

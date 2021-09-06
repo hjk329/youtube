@@ -29,7 +29,6 @@ const Visual = ({ onClose }) => (
 
 const Container = styled.div`
   height: 260px;
-  margin: 0 24px;
   position: relative;
 `;
 

@@ -11,7 +11,7 @@ const watchSlice = createSlice({
     comments: {
       nextPageToken: {},
     },
-    related: {},
+    related: [],
   },
   reducers: {
     setWatchVideo: (state, { payload }) => {

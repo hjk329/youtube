@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { useSelector } from 'react-redux';
@@ -8,14 +8,16 @@ import { StyledButton } from '../../../shared/components/Button/DefaultButton';
 
 const ChannelInfo = () => {
   const channel = useSelector((state) => state.watch.result[0].channel)
-  const vidInfo = useSelector((state) => state.watch.result[0].snippet.description)
+  const description = useSelector((state) => state.watch.result[0].snippet.description)
+  const descriptionArr = description.split('\n')
+  const [more, setMore] = useState(false)
 
   return (
 
     <Container>
       <Top>
         <ChannelAvatarInfo
-          imageUrl={channel.snippet.thumbnails.medium}
+          imageUrl={channel.snippet?.thumbnails?.medium.url}
           name={channel.snippet.title}
           subscriptions={channel.statistics.subscriberCount}
           channel={channel}
@@ -24,7 +26,14 @@ const ChannelInfo = () => {
       </Top>
       <Bottom>
         <Desc>
-          {vidInfo}
+          {descriptionArr.map((item, index) => {
+            if (!more && index > 4) return null;
+            return <p>{item}</p>
+          })}
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+          <div onClick={() => setMore((v) => !v)}>
+            {more ? '간략히' : '더보기'}
+          </div>
         </Desc>
       </Bottom>
     </Container>
@@ -53,7 +62,6 @@ const Button = styled(StyledButton)`
 
 `;
 const Bottom = styled.div`
-  height: 60px;
   margin-top: 20px;
 `;
 

@@ -10,5 +10,6 @@ const WideDesktopLayout = ({ children }) => (
 const Container = styled.div`
   position: absolute;
   left: 240px;
+  padding: 0 30px;
 `;
 export default WideDesktopLayout;

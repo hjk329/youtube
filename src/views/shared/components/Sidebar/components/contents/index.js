@@ -52,7 +52,7 @@ const Contents = () => (
     </MenuBox>
     <MenuBox>
       <p> 인기 YOUTUBE </p>
-      <IconButton icon={<IconMusic />} text="보관함" />
+      <IconButton icon={<IconMusic />} text="음악" />
       <IconButton icon={<IconSports />} text="스포츠" />
       <IconButton icon={<IconGame />} text="게임" />
       <IconButton icon={<IconMovie />} text="영화" />
@@ -116,12 +116,7 @@ const Contents = () => (
 )
 
 const Container = styled.div`
-  position: absolute;
-  top:0;
-  left : 0;
-  bottom:0;
   width: 240px;
-  z-index: 100;
 `;
 
 const MenuBox = styled.div`

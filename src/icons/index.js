@@ -67,7 +67,7 @@ export const IconMusic = () => (
     height="24"
     width="24"
     alt=""
-    src="https://yt3.ggpht.com/gFmQISpQ_JuJyCJ7nxuZefuKOdL2KPqLt4wQhs2_xha1I5p7GdFigBeOdC7wpu2J9DPw2YaMvw=s88-c-k-c0x00ffffff-no-rj"
+    src="https://yt3.ggpht.com/E9nNwt2GrVfFU5urMv5svD-z9-lS_zXp21rFtkM0CZIlcUxszx29q9s9lGFkvuzHTYuDoNsW=s88-c-k-c0x00ffffff-no-rj"
   />
 )
 
@@ -78,8 +78,7 @@ export const IconSports = () => (
     height="24"
     width="24"
     alt=""
-    src="https://yt3.ggpht.com/JVm1fmqsqSFFGt99GLBt5CLpUKJh0_cNnu3LSnli8xZj_z4HQo9LO4bf8RMHGA7hnziMDUBhyQ=s88-c-k-c0x00ffffff-no-rj"
-
+    src="https://yt3.ggpht.com/PsmwUByqejJc-sBgiBV7gB5Sce5Pg-qZ9MC19Zkgwo6msqw8-Xq9mVSveWIyEprBBTuOzTIhPw=s88-c-k-c0x00ffffff-no-rj"
   />
 )
 
@@ -90,7 +89,7 @@ export const IconGame = () => (
     height="24"
     width="24"
     alt=""
-    src="https://yt3.ggpht.com/zvyt2tx1C2ThWk9ZOfwKpCAJP4iYnGXtcACV8VkN8opX_HhOqoaCsQbOxOInFXSpPWCLXNoMeg=s88-c-k-c0x00ffffff-no-rj"
+    src="https://yt3.ggpht.com/g5L13QObVAyMAF4uJmgeR9kKAZlUGSn1oA3JmnoqedOXRNQk0NWiYwZ94lYB_GOx0WV1HrxUgw=s88-c-k-c0x00ffffff-no-rj"
   />
 )
 
@@ -134,7 +133,7 @@ export const IconEdu = () => (
     height="24"
     width="24"
     alt=""
-    src="https://yt3.ggpht.com/jYGbaMt_4cLmSZlG3qzr-oZbF8wZQE2R3BqbX8GwVnJwXPiSVUSW9lH-I2LYh2qIBtm4jflK=s88-c-k-c0x00ffffff-no-rj"
+    src="https://yt3.ggpht.com/AcVoyWj85-ZuKuB99_A9HJ2cDQtKyex4Ej6cfKslO126gk82EIxA2oFTD57pujxud5buFQfJ4qA=s88-c-k-c0x00ffffff-no-rj"
   />
 )
 
@@ -145,7 +144,7 @@ export const IconVid = () => (
     height="24"
     width="24"
     alt=""
-    src="https://yt3.ggpht.com/ufhVYBngofImEcz6EVRnw3carmWX5Rslj-2W-GYWmGZ0eGxTI9nyq25Ugu87l2CPg03I91FOrA=s88-c-k-c0x00ffffff-no-rj"
+    src="https://yt3.ggpht.com/VlMyRdm6j8a9DYcvhfhZfUAd1fV7CfadmTWAGfzsF2vn68BnY3bxUG3S0oNgD3qgZPli-MBakmw=s88-c-k-c0x00ffffff-no-rj"
   />
 )
 
