@@ -31,7 +31,7 @@ const ChannelInfo = () => {
             return <p>{item}</p>
           })}
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-          <div onClick={() => setMore((v) => !v)}>
+          <div onClick={() => setMore((v) => !v)} className="clickDetail">
             {more ? '간략히' : '더보기'}
           </div>
         </Desc>
@@ -44,6 +44,7 @@ const Container = styled.div`
   padding-bottom: 16px;
   margin-bottom: 24px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0,0,0,0.1);
 `;
 
 const Top = styled.div`
@@ -66,6 +67,20 @@ const Bottom = styled.div`
 `;
 
 const Desc = styled.div`
-
+  padding-left: 60px;
+p {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(3,3,3);
+  line-height: 20px;
+}
+  
+  > .clickDetail {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #606060;
+    cursor: pointer;
+  }
 `;
 export default ChannelInfo;

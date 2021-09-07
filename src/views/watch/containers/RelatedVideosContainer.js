@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,6 +12,9 @@ const RelatedVideosContainer = ({ info }) => {
   const videoId = info.snippet.id
   const dispatch = useDispatch()
   const relatedVideos = useSelector((state) => state.watch.related)
+  const nextPageToken = useSelector((state) => state.watch.relatedNextToken)
+  const [pageToken, setPageToken] = useState(nextPageToken)
+
   const getRelatedVideo = () => {
     dispatch(getRelatedVideos({
       part: 'snippet, statistics',
@@ -19,13 +22,20 @@ const RelatedVideosContainer = ({ info }) => {
       videoCategoryId,
       maxResults: 10,
       regionCode: 'KR',
+      // pageToken,
     }))
   }
   useEffect(() => {
     getRelatedVideo()
-  }, [videoCategoryId, videoId])
+  }, [videoCategoryId, videoId, pageToken])
 
   const [sentinelRef, inView] = useIntersection()
+
+  useEffect(() => {
+    if (inView && relatedVideos.length > 0) {
+      setPageToken(nextPageToken)
+    }
+  }, [inView])
 
   return (
     <Container>

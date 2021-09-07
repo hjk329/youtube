@@ -34,7 +34,6 @@ const VideoInfo = ({ info }) => {
 
           <Info>
             {formatDate(snippet?.publishedAt)}
-            .
           </Info>
         </Item>
         <Item>
