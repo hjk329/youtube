@@ -6,13 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import RelatedVideosList from '../components/List/RelatedVideosList';
 import { getRelatedVideos, setRelatedVideos } from '../redux/slice';
 import { useIntersection } from '../../../hooks/useIntersection';
+import IosLoader from '../../shared/components/Loader/IosLoader';
 
 const RelatedVideosContainer = ({ info }) => {
   const videoCategoryId = info?.snippet?.categoryId
-  const videoId = info.snippet.id
+  const videoId = info.id
   const dispatch = useDispatch()
-  const relatedVideos = useSelector((state) => state.watch.related)
-  const nextPageToken = useSelector((state) => state.watch.relatedNextToken)
+  const relatedVideos = useSelector((state) => state.watch.related.items)
+  const nextPageToken = useSelector((state) => state.watch.related.nextPageToken)
   const [pageToken, setPageToken] = useState(nextPageToken)
 
   const getRelatedVideo = () => {
@@ -22,17 +23,23 @@ const RelatedVideosContainer = ({ info }) => {
       videoCategoryId,
       maxResults: 10,
       regionCode: 'KR',
-      // pageToken,
+      pageToken,
     }))
   }
   useEffect(() => {
     getRelatedVideo()
   }, [videoCategoryId, videoId, pageToken])
 
+  useEffect(() => {
+    dispatch(setRelatedVideos({
+      related: {},
+    }))
+  }, [videoId])
+
   const [sentinelRef, inView] = useIntersection()
 
   useEffect(() => {
-    if (inView && relatedVideos.length > 0) {
+    if (inView) {
       setPageToken(nextPageToken)
     }
   }, [inView])
@@ -41,6 +48,10 @@ const RelatedVideosContainer = ({ info }) => {
     <Container>
       <RelatedVideosList video={relatedVideos} />
       <Sentinel ref={sentinelRef} />
+      {
+        inView
+          && <IosLoader />
+      }
     </Container>
   )
 }

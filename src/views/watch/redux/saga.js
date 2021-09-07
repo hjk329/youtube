@@ -41,18 +41,17 @@ function* getCommentsSaga({ payload }) {
 }
 
 function* getRelatedVideosSaga({ payload }) {
-  const video = yield call(API.getVideos, payload)
-  const result = yield all(video.data.items.map(async (item) => {
-    const channelResult = await API.getChannel({
-      id: item.snippet.channelId,
-      part: 'snippet, statistics',
-    })
-    return {
-      ...item,
-      channel: channelResult.data.items[0],
-    }
+  const result = yield call(API.getVideos, payload)
+  const state = yield select()
+  const prevRelatedVideos = state.watch.related.items
+  yield put(setRelatedVideos({
+    ...prevRelatedVideos,
+    ...result.data,
+    items: [
+      ...(prevRelatedVideos || []),
+      ...result.data.items,
+    ],
   }))
-  yield put(setRelatedVideos(result))
 }
 
 function* saga() {
