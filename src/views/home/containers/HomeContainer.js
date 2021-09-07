@@ -15,6 +15,7 @@ const HomeContainer = () => {
 
   const video = useSelector((state) => state.home.video)
   const nextPageToken = useSelector((state) => state.home.nextToken)
+  const shortcutState = useSelector((state) => state.app.shortcuts)
 
   const [pageToken, setPageToken] = useState(nextPageToken)
   const {
@@ -59,6 +60,7 @@ const HomeContainer = () => {
       isTablet,
       isMobile,
       isNotMobile,
+      shortcutState,
     })}
     >
       {
@@ -79,8 +81,12 @@ const Container = styled.div`
   &.isWideDesktop {
     padding: 56px 0 0 240px;
   }
-  
+
   &.isDesktop {
+    padding-left: 72px;
+  }
+  
+  &.shortcutState {
     padding-left: 72px;
   }
 `;

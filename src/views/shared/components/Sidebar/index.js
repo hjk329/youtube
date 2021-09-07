@@ -11,7 +11,7 @@ const Sidebar = () => (
 
 const Container = styled.div`
   position: fixed;
-  top: 54px;
+  top: 50px;
   bottom: 0;
   left: 0;
   z-index: 1000;

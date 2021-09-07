@@ -17,7 +17,7 @@ const SearchContainer = () => {
     dispatch(searchVideos({
       part: 'snippet, id',
       q: query,
-      maxResults: 2,
+      maxResults: 5,
       regionCode: 'KR',
     }))
   }

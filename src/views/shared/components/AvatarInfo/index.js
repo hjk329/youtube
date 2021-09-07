@@ -130,9 +130,6 @@ const Views = styled.div`
 `;
 
 const Published = styled.div`
-  color: rgb(170, 170, 170);
-  font-size: 12px;
-  font-weight: 400;
 
 `;
 export default AvatarInfo;

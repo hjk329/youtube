@@ -5,8 +5,7 @@ import {
 import {
   getComments,
   getRelatedVideos,
-  setComments,
-  setNextPageToken, setRelatedVideos,
+  setComments, setRelatedVideos,
   setWatchVideo,
   watchVideo,
 } from './slice';

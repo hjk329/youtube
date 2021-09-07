@@ -30,6 +30,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: #fff;
   padding: 0 16px;
 
 `;

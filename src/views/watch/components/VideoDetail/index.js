@@ -13,30 +13,30 @@ const VideoDetail = ({
 }) => (
 
   <Container>
-    <Left>
+    <Thumb>
       <VideoBox id={id} />
       <VideoInfo info={info} />
       <ChannelInfo />
       <GetCommentsContainer info={info} />
-    </Left>
-    <Right>
+    </Thumb>
+    <Related>
       <RelatedVideosContainer info={info} />
-    </Right>
+    </Related>
   </Container>
 )
 
 const Container = styled.div`
   display: flex;
-  padding: 24px;
+  padding: 60px 24px;
 
 `;
 
-const Left = styled.div`
-  flex: 5;
+const Thumb = styled.div`
+  flex: 1;
 `;
 
-const Right = styled.div`
-  flex: 2;
+const Related = styled.div`
+  flex-shrink: 0;
   padding-left: 24px;
 
   @media screen and (max-width: 1000px) {
