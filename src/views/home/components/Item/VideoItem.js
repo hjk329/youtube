@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
-
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
-
-import { useDispatch } from 'react-redux';
+import moment from 'moment';
 
 import AvatarInfo from '../../../shared/components/AvatarInfo';
 import RatioBox from '../../../shared/components/RatioBox';
-import { showAnimationSidebar, showShortcuts } from '../../../shared/redux/slice';
 
 const VideoItem = ({ item }) => {
   const {
@@ -26,8 +22,13 @@ const VideoItem = ({ item }) => {
         <RatioBox width={4} height={3}>
           <img src={snippet?.thumbnails?.high?.url} alt="" />
           <Screen>
-            <Button><MdAccessTime /></Button>
-            <Button><MdPlaylistPlay /></Button>
+            <Top>
+              <Button><MdAccessTime /></Button>
+              <Button><MdPlaylistPlay /></Button>
+            </Top>
+            <Bottom>
+              {/* {moment.duration(contentDetails.duration)} */}
+            </Bottom>
           </Screen>
         </RatioBox>
 
@@ -67,6 +68,14 @@ const Screen = styled.div`
   right:0;
   padding: 10px;
 
+`;
+
+const Top = styled.div`
+    
+`;
+
+const Bottom = styled.div`
+    
 `;
 
 const Button = styled.div`

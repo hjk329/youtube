@@ -8,7 +8,7 @@ const Tags = () => {
   return (
     <Container>
       {
-        tags && tags.map((item) => <Tag>{item}</Tag>)
+        tags.map((item) => <Tag>{item}</Tag>)
       }
     </Container>
   )

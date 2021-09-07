@@ -13,8 +13,6 @@ const RelatedItems = ({ item }) => {
     id,
     snippet,
     statistics,
-    contentDetails,
-    channel,
   } = item;
 
   return (
@@ -33,7 +31,7 @@ const RelatedItems = ({ item }) => {
             title={snippet?.title}
             name={snippet?.channelTitle}
             views={statistics?.viewCount}
-            published={snippet?.publishedAt}
+            publishedAt={snippet?.publishedAt}
           />
         </Desc>
       </ContentBox>
@@ -47,6 +45,8 @@ const Container = styled.div`
 
 const ContentBox = styled(Link)`
   display: flex;
+  width: 402px;
+  height: 94px;
   position: relative;
   cursor: pointer;
 
@@ -60,7 +60,7 @@ const ContentBox = styled(Link)`
 const Screen = styled.div`
   position: absolute;
   top: 0;
-  right:0;
+  right: 0;
   padding: 10px;
 
 `;
@@ -78,7 +78,8 @@ const Button = styled.div`
 `;
 
 const Desc = styled.div`
-
+  flex: 1;
+  margin-left: 8px;
 `;
 
 export default RelatedItems;
