@@ -13,7 +13,7 @@ export const formatDate = (dateInfo) => {
   const year = published.getFullYear()
   const month = published.getMonth() + 1
   const date = published.getDate()
-  return `${year}-${month}-${date}`
+  return `${year}. ${month}. ${date}`
 }
 
 export const formatThousandDigit1 = (num) => {
