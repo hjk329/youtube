@@ -33,7 +33,7 @@ const HeaderContainer = () => {
   //   dispatch(showShortcuts(true))
   // }
 
-  const isSearch = match.path === '/search/:query'
+  const isSearch = match.path === '/results/:query'
 
   return (
 

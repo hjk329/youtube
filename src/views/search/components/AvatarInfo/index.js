@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import moment from 'moment';
 import 'moment/locale/ko'
 
 import { formatNumber } from '../../../../lib/common';
-import Tags from '../Tags';
 
 const AvatarInfo = ({
   imageUrl,
@@ -13,7 +11,7 @@ const AvatarInfo = ({
   name,
   views,
   publishedAt,
-  comments,
+  videoInfo,
 }) => (
   <Container>
     <Desc>
@@ -49,9 +47,6 @@ const AvatarInfo = ({
         </Thumb>
       )
     }
-    <TagBox>
-      <Tags />
-    </TagBox>
   </Container>
 )
 

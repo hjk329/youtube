@@ -5,6 +5,7 @@ import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
 import AvatarInfo from '../AvatarInfo';
 import RatioBox from '../../../shared/components/RatioBox';
+import Details from '../SearchDetail/Details';
 
 const SearchVideoItem = ({ item }) => {
   const {
@@ -31,7 +32,9 @@ const SearchVideoItem = ({ item }) => {
             name={channel?.snippet?.title}
             views={videoInfo?.statistics?.viewCount}
             publishedAt={snippet?.publishedAt}
+            videoInfo={videoInfo}
           />
+          <Details details={videoInfo} />
         </Desc>
       </ContentBox>
     </Container>
@@ -39,12 +42,16 @@ const SearchVideoItem = ({ item }) => {
 }
 
 const Container = styled.div`
+  height: 200px;
   margin-top: 16px;
+  overflow: hidden;
 `;
 
 const ContentBox = styled(Link)`
   display: flex;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
 
   &:hover {
     svg {
@@ -73,6 +80,7 @@ const Button = styled.div`
 
 const Desc = styled.div`
  margin-left: 16px;
+  flex: 1;
 `;
 
 export default SearchVideoItem;

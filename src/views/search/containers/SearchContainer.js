@@ -5,11 +5,13 @@ import { useRouteMatch } from 'react-router-dom';
 
 import { searchVideos } from '../redux/slice';
 import SearchDetail from '../components/SearchDetail';
+import { showShortcuts } from '../../shared/redux/slice';
 
 const SearchContainer = () => {
   const match = useRouteMatch()
   const { query } = match.params
   const searchResults = useSelector((state) => state.search.results)
+  const shortcutState = useSelector((state) => state.app.shortcuts)
 
   const dispatch = useDispatch()
 
@@ -17,7 +19,7 @@ const SearchContainer = () => {
     dispatch(searchVideos({
       part: 'snippet, id',
       q: query,
-      maxResults: 5,
+      maxResults: 2,
       regionCode: 'KR',
     }))
   }
