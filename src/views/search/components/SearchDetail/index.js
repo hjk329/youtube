@@ -17,7 +17,7 @@ const SearchDetail = ({ results }) => {
 }
 
 const Container = styled.div`
-  margin: 16px 24px;
+  padding: 16px 24px;
   //display: flex;
 `;
 export default SearchDetail;

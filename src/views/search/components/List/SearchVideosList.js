@@ -21,7 +21,7 @@ const SearchVideosList = ({ results = [] }) => {
 }
 
 const Container = styled.div`
-
+  flex: 1;
 `;
 
 const Content = styled.div`
