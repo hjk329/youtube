@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
 import { MdMic, MdSearch } from 'react-icons/all';
-
 import { useHistory } from 'react-router-dom';
-
 import qs from 'qs';
+import { useDispatch } from 'react-redux';
 
 import { DefaultButton } from '../../Button/DefaultButton';
+import { showShortcuts } from '../../../redux/slice';
 
 const SearchBox = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
 
   const [query, setQuery] = useState('')
 
   const onSubmit = (e) => {
+    dispatch(showShortcuts(false))
     e.preventDefault()
     history.push(`/results/${qs.stringify({
       search_query: query,

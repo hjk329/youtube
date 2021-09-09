@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 import moment from 'moment';
 
+import { useDispatch } from 'react-redux';
+
 import AvatarInfo from '../../../shared/components/AvatarInfo';
 import RatioBox from '../../../shared/components/RatioBox';
+import { showShortcuts } from '../../../shared/redux/slice';
 
 const VideoItem = ({ item }) => {
   const {
@@ -15,9 +18,16 @@ const VideoItem = ({ item }) => {
     contentDetails,
     channel,
   } = item;
+  const dispatch = useDispatch()
+  const onClick = () => {
+    dispatch(showShortcuts(false))
+  }
+  useEffect(() => {
+    onClick();
+  }, [])
 
   return (
-    <Container>
+    <Container onClick={onClick}>
       <ContentBox to={`/watch/${id}`}>
         <RatioBox width={4} height={3}>
           <img src={snippet?.thumbnails?.high?.url} alt="" />
@@ -47,7 +57,8 @@ const VideoItem = ({ item }) => {
 }
 
 const Container = styled.div`
-
+  position: relative;
+  top: 40px;
 `;
 
 const ContentBox = styled(Link)`

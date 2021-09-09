@@ -27,13 +27,7 @@ const HeaderContainer = () => {
   const getSidebar = () => {
     dispatch(showShortcuts())
   }
-  const match = useRouteMatch()
-  // const isWatch = match.path === '/watch/:id'
-  // if (isWatch) {
-  //   dispatch(showShortcuts(true))
-  // }
-
-  const isSearch = match.path === '/results/:query'
+  const isSearch = location.pathname === '/results/:query'
 
   return (
 

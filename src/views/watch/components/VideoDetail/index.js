@@ -29,14 +29,16 @@ const Container = styled.div`
   display: flex;
   padding: 60px 24px;
 
+  @media screen and (max-width: 1000px) {
+    display: block;
+  }
+
 `;
 
 const Thumb = styled.div`
-  flex: 1;
 `;
 
 const Related = styled.div`
-  flex-shrink: 0;
   padding-left: 24px;
 
   @media screen and (max-width: 1000px) {

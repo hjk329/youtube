@@ -1,15 +1,17 @@
 import {
-  takeLatest, call, put, all,
+  takeLatest, call, put, all, select,
 } from 'redux-saga/effects';
 
 import {
   getChannelSection,
-  getPlaylist, searchVideos, setChannelSection, setPlaylist, setSearchVideos,
+  getPlaylist, searchVideos, setChannelSection, setNextPageToken, setPlaylist, setSearchVideos,
 } from './slice';
 import { API } from '../../../api/request';
 
 function* searchVideosSaga({ payload }) {
   const video = yield call(API.searchVideos, payload)
+  const { nextPageToken } = video.data
+  yield put(setNextPageToken(nextPageToken))
   const result = yield all(video.data.items.map(async (item) => {
     const channelResult = await API.getChannel({
       id: item.snippet.channelId,
@@ -25,7 +27,12 @@ function* searchVideosSaga({ payload }) {
       videoInfo: videoInfo.data.items[0],
     }
   }))
-  yield put(setSearchVideos(result))
+  const state = yield select()
+  const prevSearchResults = state.search.results
+  yield put(setSearchVideos([
+    ...prevSearchResults,
+    ...result,
+  ]))
 }
 
 function* getPlaylistSaga({ payload }) {

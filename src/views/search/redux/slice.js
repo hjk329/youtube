@@ -8,12 +8,16 @@ const searchSlice = createSlice({
   name: 'search',
   initialState: {
     results: [],
+    nextPageToken: {},
     playlist: {},
     channelSection: {},
   },
   reducers: {
     setSearchVideos: (state, { payload }) => {
       state.results = payload;
+    },
+    setNextPageToken: (state, { payload }) => {
+      state.nextPageToken = payload;
     },
     setPlaylist: (state, { payload }) => {
       state.playlist = payload;
@@ -24,5 +28,7 @@ const searchSlice = createSlice({
   },
 })
 
-export const { setSearchVideos, setPlaylist, setChannelSection } = searchSlice.actions;
+export const {
+  setSearchVideos, setNextPageToken, setPlaylist, setChannelSection,
+} = searchSlice.actions;
 export default searchSlice.reducer;
