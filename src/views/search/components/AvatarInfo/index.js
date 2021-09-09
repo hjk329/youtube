@@ -11,7 +11,6 @@ const AvatarInfo = ({
   name,
   views,
   publishedAt,
-  videoInfo,
 }) => (
   <Container>
     <Desc>
@@ -32,7 +31,8 @@ const AvatarInfo = ({
           publishedAt
           && (
             <Published>
-              {moment(publishedAt).fromNow()}
+              {moment(publishedAt)
+                .fromNow()}
             </Published>
           )
         }
@@ -70,15 +70,16 @@ const Thumb = styled.div`
 `;
 
 const Desc = styled.div`
-
 `;
 
 const Title = styled.div`
-  margin: 12px 0 6px;
-  font-size: 18px;
-  font-weight: 400;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  margin-right: 8px;
+  font-size: 12px;
+  font-weight: 700;
   color: #030303;
-  line-height: 26px;
 `;
 
 const Name = styled.div`
@@ -87,7 +88,6 @@ const Name = styled.div`
   color: rgb(96, 96, 96);
   transition: 0.3s;
   line-height: 18px;
-
 
   &:hover {
     color: #333;
@@ -111,19 +111,15 @@ const Details = styled.div`
     margin: 0 4px;
     background: rgb(96, 96, 96);
   }
-  
-  
+
+
 `;
 
 const Views = styled.div`
-    
+
 `;
 
 const Published = styled.div`
 
-`;
-
-const TagBox = styled.div`
-    
 `;
 export default AvatarInfo;

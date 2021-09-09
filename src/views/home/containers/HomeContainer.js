@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
 
@@ -54,18 +54,19 @@ const HomeContainer = () => {
   }, [inView])
 
   return (
-    <Container className={cn({
-      isWideDesktop,
-      isDesktop,
-      isTablet,
-      isMobile,
-      isNotMobile,
-      shortcutState,
-    })}
+    <Container
+      className={cn({
+        isWideDesktop,
+        isDesktop,
+        isTablet,
+        isMobile,
+        shortcutState,
+      })}
+      state={shortcutState}
     >
       {
         showVisual
-            && <Visual onClose={onClose} />
+        && <Visual onClose={onClose} />
       }
       <VideoList data={video} />
       <Sentinel ref={sentinelRef} />
@@ -82,13 +83,20 @@ const Container = styled.div`
     padding: 56px 0 0 240px;
   }
 
-  &.isDesktop {
+  &.isDesktop
+ {
     padding-left: 72px;
   }
   
   &.shortcutState {
     padding-left: 72px;
   }
+
+  &.isTablet,
+  &.isMobile {
+    padding-left: 0;
+  }
+
 `;
 
 const Sentinel = styled.div`

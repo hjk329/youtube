@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import _ from 'lodash';
 
 import SearchVideoItem from '../Item/SearchVideoItem';
+import SearchVideoItems from '../Item/SearchVideoItems';
 
 const SearchVideosList = ({ results = [] }) => {
-  console.log(1)
+  if (_.isEmpty(results)) return null;
   return (
     <Container>
       <Content>

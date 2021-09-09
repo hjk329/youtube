@@ -61,6 +61,7 @@ const Container = styled.div`
 `;
 
 const Sentinel = styled.div`
-    
+  height: 1px;
+  pointer-events: none;
 `;
 export default RelatedVideosContainer;

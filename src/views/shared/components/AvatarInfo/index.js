@@ -25,7 +25,10 @@ const AvatarInfo = ({
     }
 
     <Desc>
-      <Title>{title}</Title>
+      <Title>
+        {title.substring(0, 45)}
+        ...
+      </Title>
       <Name>{name}</Name>
 
       <Details className="details">

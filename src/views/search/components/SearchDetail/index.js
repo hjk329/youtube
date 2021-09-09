@@ -5,7 +5,7 @@ import Filter from '../Filter';
 import SearchVideosList from '../List/SearchVideosList';
 import RelatedPlaylistContainer from '../../containers/RelatedPlaylistContainer';
 
-const SearchDetail = ({ results }) => {
+const SearchDetail = ({ results = [] }) => {
   const ae = 1;
   return (
     <Container>
@@ -18,6 +18,6 @@ const SearchDetail = ({ results }) => {
 
 const Container = styled.div`
   padding: 16px 24px;
-  //display: flex;
+  background: rgba(0, 0, 0, 0.03);
 `;
 export default SearchDetail;

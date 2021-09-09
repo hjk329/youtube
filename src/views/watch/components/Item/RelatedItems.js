@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
 import AvatarInfo from '../../../shared/components/AvatarInfo';
-import RatioBox from '../../../shared/components/RatioBox';
 
 const RelatedItems = ({ item }) => {
   const {
@@ -18,13 +17,13 @@ const RelatedItems = ({ item }) => {
   return (
     <Container>
       <ContentBox to={`/watch/${id}`}>
-        <RatioBox width={4} height={3}>
-          <img src={snippet?.thumbnails?.high?.url} alt="" />
+        <Thumb>
+          <img src={snippet?.thumbnails?.medium?.url} alt="" />
           <Screen>
             <Button><MdAccessTime /></Button>
             <Button><MdPlaylistPlay /></Button>
           </Screen>
-        </RatioBox>
+        </Thumb>
 
         <Desc>
           <AvatarInfo
@@ -40,20 +39,30 @@ const RelatedItems = ({ item }) => {
 }
 
 const Container = styled.div`
-
+  margin-bottom: 8px;
 `;
 
 const ContentBox = styled(Link)`
   display: flex;
-  width: 402px;
-  height: 94px;
   position: relative;
+  height: 98px;
+  overflow: hidden;
   cursor: pointer;
 
   &:hover {
     svg {
       opacity: 1;
     }
+  }
+`;
+
+const Thumb = styled.div`
+  position: relative;
+  width: 168px;
+  height: 94px;
+  img {
+    width: 168px;
+    height: 94px;
   }
 `;
 
@@ -78,7 +87,7 @@ const Button = styled.div`
 `;
 
 const Desc = styled.div`
-  flex: 1;
+  height: 98px;
   margin-left: 8px;
 `;
 

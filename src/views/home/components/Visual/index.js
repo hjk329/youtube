@@ -14,7 +14,7 @@ const Visual = ({ onClose }) => (
           <IconYoutubeMusic />
         </Header>
         <Center>
-          Music Premium으로 끊김없이 음악을 즐기세요
+          Music Premium으로 광고없이 감상하세요
         </Center>
         <Footer>
           <JoinButton>지금 가입하기</JoinButton>
@@ -30,10 +30,25 @@ const Visual = ({ onClose }) => (
 const Container = styled.div`
   height: 260px;
   position: relative;
+  top: 20px;
+  
+//  @media screen and (max-width: 768px) {
+//  display: none;
+//}
 `;
 
 const ImageBox = styled.div`
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
 `;
 
@@ -41,36 +56,34 @@ const Text = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   height: 100%;
+  padding: 60px 24px;
 `;
 
 const Header = styled.div`
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+  height: 28px;
+  img {
+    width: 320px;
+    height: 24px;
+    object-fit: cover;
+  }
 `;
 
 const Center = styled.div`
-  position: absolute;
-  top: 60px;
-  left: 10px;
-  padding: 20px;
   margin-bottom: 20px;
-  max-width: 440px;
-  color: #fff;
   font-size: 26px;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 30px;
+  color: #fff;
+  max-width: 440px;
+  height: 80px;
+  white-space: nowrap;
 `;
 
 const Footer = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 10px;
-  padding: 20px;
-  margin: 20px 0;
+  margin-bottom: 10px;
 `;
 
 const JoinButton = styled.div`
@@ -79,6 +92,8 @@ const JoinButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 113px;
+  height: 37px;
   color: #fff;
   border-radius: 2px;
   font-size: 14px;

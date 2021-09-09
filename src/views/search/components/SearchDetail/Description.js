@@ -1,22 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Details = ({ details }) => {
+const Description = ({ details }) => {
   const {
     snippet,
   } = details
 
-  const descriptionArr = snippet.description.split(' ')
-
   return (
     <Container>
       <Content>
-        {
-          descriptionArr.map((item, index) => {
-            if (index > 10) return null;
-            return <Content>{item}</Content>
-          })
-        }
+        {snippet.description.substring(0, 115)}
         ...
       </Content>
     </Container>
@@ -24,7 +17,6 @@ const Details = ({ details }) => {
 }
 
 const Container = styled.div`
-  margin-bottom: 8px;
 `;
 
 const Content = styled.div`
@@ -36,4 +28,4 @@ const Content = styled.div`
   text-transform: capitalize;
 
 `;
-export default Details;
+export default Description;
