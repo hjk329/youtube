@@ -6,7 +6,6 @@ import _ from 'lodash';
 
 import { watchVideo } from '../redux/slice';
 import VideoDetail from '../components/VideoDetail';
-import { showAnimationSidebar, showShortcuts } from '../../shared/redux/slice';
 
 const WatchVideoContainer = () => {
   const dispatch = useDispatch()

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import moment from 'moment';
 import 'moment/locale/ko'
+import cn from 'classnames';
 
 import { formatNumber } from '../../../../lib/common';
 
@@ -13,6 +13,7 @@ const AvatarInfo = ({
   views,
   publishedAt,
   comments,
+  component,
 }) => (
   <Container>
     {
@@ -25,9 +26,10 @@ const AvatarInfo = ({
     }
 
     <Desc>
-      <Title>
-        {title.substring(0, 45)}
-        ...
+      <Title className={cn(component)}>
+        {
+          title.length > 53 ? `${title.substr(0, 53)}...` : title
+        }
       </Title>
       <Name>{name}</Name>
 
@@ -92,6 +94,10 @@ const Title = styled.div`
   font-size: 14px;
   font-weight: 700;
   color: #333;
+  
+  &.relatedVideos {
+   margin: 0 0 4px;
+  }
 `;
 
 const Name = styled.div`
@@ -123,6 +129,10 @@ const Details = styled.div`
     height: 4px;
     margin: 0 4px;
     background: rgb(96, 96, 96);
+  }
+  
+  @media screen and (max-width: 1030px){
+    display: block;
   }
   
   

@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
-
 import { MdMenu } from 'react-icons/all';
-
 import { Link } from 'react-router-dom';
 
 import { IconLogo } from '../../../../../../icons';
@@ -18,7 +16,7 @@ const AnimationSidebar = ({ sidebar, getSidebar }) => (
         <MdMenu />
         {' '}
       </Button>
-      <Button className="logo">
+      <Button className="logo" to="/">
         {' '}
         <IconLogo />
         {' '}
@@ -44,7 +42,7 @@ const Container = styled.div`
   }
 `;
 
-const Logo = styled.div`
+const Logo = styled(Link)`
   display: flex;
   height: 56px;
   align-items: center;

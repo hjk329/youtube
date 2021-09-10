@@ -5,7 +5,6 @@ import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
 import AvatarInfo from '../AvatarInfo';
 import RatioBox from '../../../shared/components/RatioBox';
-import Description from '../SearchDetail/Description';
 
 const SearchVideoItem = ({ item }) => {
   const {
@@ -32,8 +31,8 @@ const SearchVideoItem = ({ item }) => {
             name={channel?.snippet?.title}
             views={videoInfo?.statistics?.viewCount}
             publishedAt={snippet?.publishedAt}
+            description={videoInfo.snippet.description}
           />
-          <Description details={videoInfo} />
         </Desc>
       </ContentBox>
     </Container>

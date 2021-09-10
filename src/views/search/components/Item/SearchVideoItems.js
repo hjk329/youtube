@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
-import AvatarInfo from '../AvatarInfo';
-import Description from '../SearchDetail/Description';
+import AvatarInfo from '../../../shared/components/AvatarInfo';
 
 const SearchVideoItems = ({ item }) => {
   const {
@@ -32,8 +31,8 @@ const SearchVideoItems = ({ item }) => {
               name={channel?.snippet?.title}
               views={videoInfo?.statistics?.viewCount}
               publishedAt={snippet?.publishedAt}
+              description={videoInfo.snippet?.description}
             />
-            <Description details={videoInfo} />
           </Desc>
         </ContentItem>
       </ContentBox>

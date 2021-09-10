@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { Link } from 'react-router-dom';
-
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
 import AvatarInfo from '../../../shared/components/AvatarInfo';
@@ -31,6 +29,7 @@ const RelatedItems = ({ item }) => {
             name={snippet?.channelTitle}
             views={statistics?.viewCount}
             publishedAt={snippet?.publishedAt}
+            component="relatedVideos"
           />
         </Desc>
       </ContentBox>
@@ -40,12 +39,16 @@ const RelatedItems = ({ item }) => {
 
 const Container = styled.div`
   margin-bottom: 8px;
+
+  @media screen and (min-width: 1113px) {
+    width: 402px;
+  }
 `;
 
 const ContentBox = styled(Link)`
   display: flex;
   position: relative;
-  height: 98px;
+  height: 94px;
   overflow: hidden;
   cursor: pointer;
 
@@ -54,15 +57,18 @@ const ContentBox = styled(Link)`
       opacity: 1;
     }
   }
+  
 `;
 
 const Thumb = styled.div`
   position: relative;
   width: 168px;
   height: 94px;
+  flex-shrink: 0;
+
   img {
-    width: 168px;
-    height: 94px;
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -87,8 +93,9 @@ const Button = styled.div`
 `;
 
 const Desc = styled.div`
-  height: 98px;
+  height: 94px;
   margin-left: 8px;
+  padding-right: 24px;
 `;
 
 export default RelatedItems;

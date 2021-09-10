@@ -36,6 +36,7 @@ const Container = styled.div`
 `;
 
 const Thumb = styled.div`
+  flex: 1;
 `;
 
 const Related = styled.div`
@@ -43,6 +44,14 @@ const Related = styled.div`
 
   @media screen and (max-width: 1000px) {
     display: none;
+  }
+
+  @media screen and (min-width: 1113px) {
+    width: 402px;
+  }
+  
+  @media screen and (max-width: 1112px) and (min-width: 1001px) {
+    flex: 1;
   }
 `;
 export default VideoDetail;
