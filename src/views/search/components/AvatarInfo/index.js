@@ -11,6 +11,7 @@ const AvatarInfo = ({
   name,
   views,
   publishedAt,
+  description,
 }) => (
   <Container>
     <Desc>
@@ -47,6 +48,16 @@ const AvatarInfo = ({
         </Thumb>
       )
     }
+    {
+      description
+      && (
+        <Description>
+          {
+            description.length > 115 ? `${description.substr(0, 115)}...` : description
+          }
+        </Description>
+      )
+    }
   </Container>
 )
 
@@ -77,8 +88,8 @@ const Title = styled.div`
   align-items: center;
   height: 52px;
   margin-right: 8px;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 400;
   color: #030303;
 `;
 
@@ -121,5 +132,15 @@ const Views = styled.div`
 
 const Published = styled.div`
 
+`;
+
+const Description = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  font-weight: 400;
+  color: #606060;
+  text-transform: capitalize;
+  margin-bottom: 8px;
 `;
 export default AvatarInfo;
