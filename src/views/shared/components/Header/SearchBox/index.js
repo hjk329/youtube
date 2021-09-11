@@ -53,6 +53,12 @@ const Container = styled.div`
   padding: 0 4px;
   height: 30px;
   flex-basis: 728px;
+  
+  @media screen and (max-width:640px) {
+    display: none;
+  }
+  
+  
 `;
 
 const Form = styled.form`

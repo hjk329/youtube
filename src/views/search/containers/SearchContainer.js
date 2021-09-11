@@ -41,6 +41,12 @@ const SearchContainer = () => {
     }
   }, [inView])
 
+  // useEffect(() => {
+  //   dispatch(setSearchVideos({
+  //     results: [],
+  //   }))
+  // }, [query])
+
   return (
     <Container className={cn({ shortcutState })}>
       {
@@ -54,6 +60,7 @@ const SearchContainer = () => {
 
 const Container = styled.div`
   padding-left: 260px;
+
   &.shortcutState {
     padding-left: 72px;
   }

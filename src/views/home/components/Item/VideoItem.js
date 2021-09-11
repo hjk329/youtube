@@ -18,16 +18,9 @@ const VideoItem = ({ item }) => {
     contentDetails,
     channel,
   } = item;
-  const dispatch = useDispatch()
-  const onClick = () => {
-    dispatch(showShortcuts(false))
-  }
-  useEffect(() => {
-    onClick();
-  }, [])
 
   return (
-    <Container onClick={onClick}>
+    <Container>
       <ContentBox to={`/watch/${id}`}>
         <RatioBox width={4} height={3}>
           <img src={snippet?.thumbnails?.high?.url} alt="" />

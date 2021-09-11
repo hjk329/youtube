@@ -35,7 +35,10 @@ const NavItem = styled(Link)`
     }
   
   &:last-child {
-    padding: 6px 12px;
+    width: 94px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
     color: rgb(6, 95, 212);
     font-size: 14px;
     font-weight: 500;
