@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useWindowSize } from 'rooks';
+import cn from 'classnames';
 
 import VideoBox from './VideoBox';
 import ChannelInfo from './Channelnfo';
@@ -10,20 +12,25 @@ import GetCommentsContainer from '../../containers/GetCommentsContainer';
 const VideoDetail = ({
   info,
   id,
-}) => (
+}) => {
+  const { innerWidth } = useWindowSize();
+  const small = innerWidth <= 1000
 
-  <Container>
-    <Thumb>
-      <VideoBox id={id} />
-      <VideoInfo info={info} />
-      <ChannelInfo />
-      <GetCommentsContainer info={info} />
-    </Thumb>
-    <Related>
-      <RelatedVideosContainer info={info} />
-    </Related>
-  </Container>
-)
+  return (
+
+    <Container>
+      <Thumb>
+        <VideoBox id={id} />
+        <VideoInfo info={info} />
+        <ChannelInfo />
+        <GetCommentsContainer info={info} />
+      </Thumb>
+      <Related>
+        <RelatedVideosContainer info={info} />
+      </Related>
+    </Container>
+  )
+}
 
 const Container = styled.div`
   display: flex;

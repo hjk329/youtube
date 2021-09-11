@@ -53,7 +53,7 @@ const AvatarInfo = ({
       && (
         <Description>
           {
-            description.length > 115 ? `${description.substr(0, 115)}...` : description
+            description.length > 55 ? `${description.substr(0, 55)}...` : description
           }
         </Description>
       )
@@ -123,6 +123,9 @@ const Details = styled.div`
     background: rgb(96, 96, 96);
   }
 
+  @media screen and (max-width: 460px) {
+    display: block;
+  }
 
 `;
 

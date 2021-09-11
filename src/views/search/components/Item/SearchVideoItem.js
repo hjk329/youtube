@@ -16,7 +16,7 @@ const SearchVideoItem = ({ item }) => {
   return (
     <Container>
       <ContentBox to={`/watch/${id?.videoId}`}>
-        <RatioBox width={4} height={3}>
+        <RatioBox width={360} height={202}>
           <img src={snippet?.thumbnails?.high?.url} alt="" />
           <Screen>
             <Button><MdAccessTime /></Button>
@@ -52,6 +52,7 @@ const ContentBox = styled(Link)`
       opacity: 1;
     }
   }
+  
 `;
 
 const Screen = styled.div`
@@ -75,6 +76,9 @@ const Button = styled.div`
 const Desc = styled.div`
   margin-left: 16px;
   flex: 1;
+  @media screen and (max-width: 280px) {
+    display: none;
+  }
 `;
 
 export default SearchVideoItem;

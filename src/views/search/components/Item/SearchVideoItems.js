@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
-import AvatarInfo from '../../../shared/components/AvatarInfo';
+import AvatarInfo from '../AvatarInfo';
 
 const SearchVideoItems = ({ item }) => {
   const {
@@ -15,26 +15,24 @@ const SearchVideoItems = ({ item }) => {
   return (
     <Container>
       <ContentBox to={`/watch/${id?.videoId}`}>
-        <ContentItem>
-          <Thumb>
-            <img src={snippet?.thumbnails?.high?.url} alt="" />
-            <Screen>
-              <Button><MdAccessTime /></Button>
-              <Button><MdPlaylistPlay /></Button>
-            </Screen>
-          </Thumb>
+        <Thumb>
+          <img src={snippet?.thumbnails?.high?.url} alt="" />
+          <Screen>
+            <Button><MdAccessTime /></Button>
+            <Button><MdPlaylistPlay /></Button>
+          </Screen>
+        </Thumb>
 
-          <Desc>
-            <AvatarInfo
-              imageUrl={channel?.snippet?.thumbnails?.high.url}
-              title={snippet?.title}
-              name={channel?.snippet?.title}
-              views={videoInfo?.statistics?.viewCount}
-              publishedAt={snippet?.publishedAt}
-              description={videoInfo.snippet?.description}
-            />
-          </Desc>
-        </ContentItem>
+        <Desc>
+          <AvatarInfo
+            imageUrl={channel?.snippet?.thumbnails?.high.url}
+            title={snippet?.title}
+            name={channel?.snippet?.title}
+            views={videoInfo?.statistics?.viewCount}
+            publishedAt={snippet?.publishedAt}
+            description={videoInfo.snippet?.description}
+          />
+        </Desc>
       </ContentBox>
     </Container>
   )
@@ -45,8 +43,7 @@ const Container = styled.div`
 `;
 
 const ContentBox = styled(Link)`
-  position: relative;
-  display: block;
+  display: flex;
   height: 202px;
   cursor: pointer;
 
@@ -57,25 +54,14 @@ const ContentBox = styled(Link)`
   }
 `;
 
-const ContentItem = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-
-`;
-
 const Thumb = styled.div`
   position: relative;
-  flex-shrink: 0;
-
   img {
-    width: 360px;
-    height: 202px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
+
 `;
 
 const Screen = styled.div`
@@ -97,10 +83,9 @@ const Button = styled.div`
 `;
 
 const Desc = styled.div`
-  flex: 1;
   margin-left: 16px;
-  @media screen and (max-width: 980px) {
-    width: 484px;
+  @media screen and (max-width: 280px) {
+    display: none;
   }
 `;
 

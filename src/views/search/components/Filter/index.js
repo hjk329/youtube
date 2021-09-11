@@ -18,7 +18,7 @@ const Filter = () => {
 }
 
 const Container = styled.div`
-
+  margin-top: 60px;
 `;
 
 const Content = styled.div`
