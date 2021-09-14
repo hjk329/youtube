@@ -6,7 +6,7 @@ import { getComments, setComments } from '../redux/slice';
 import { useIntersection } from '../../../hooks/useIntersection';
 import Comments from '../components/VideoDetail/Comments';
 
-const GetCommentsContainer = ({ info }) => {
+const GetCommentsContainer = () => {
   const dispatch = useDispatch()
   const comments = useSelector((state) => state.watch.comments.items)
   const videoId = useSelector((state) => state.watch.result[0].id)

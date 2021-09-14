@@ -16,13 +16,15 @@ const SearchVideoItem = ({ item }) => {
   return (
     <Container>
       <ContentBox to={`/watch/${id?.videoId}`}>
-        <RatioBox width={360} height={202}>
-          <img src={snippet?.thumbnails?.high?.url} alt="" />
-          <Screen>
-            <Button><MdAccessTime /></Button>
-            <Button><MdPlaylistPlay /></Button>
-          </Screen>
-        </RatioBox>
+        <Thumb>
+          <RatioBox width={360} height={202}>
+            <img src={snippet?.thumbnails?.high?.url} alt="" />
+            <Screen>
+              <Button><MdAccessTime /></Button>
+              <Button><MdPlaylistPlay /></Button>
+            </Screen>
+          </RatioBox>
+        </Thumb>
 
         <Desc>
           <AvatarInfo
@@ -31,7 +33,7 @@ const SearchVideoItem = ({ item }) => {
             name={channel?.snippet?.title}
             views={videoInfo?.statistics?.viewCount}
             publishedAt={snippet?.publishedAt}
-            description={videoInfo.snippet.description}
+            description={videoInfo?.snippet?.description}
           />
         </Desc>
       </ContentBox>
@@ -52,7 +54,7 @@ const ContentBox = styled(Link)`
       opacity: 1;
     }
   }
-  
+
 `;
 
 const Screen = styled.div`
@@ -71,6 +73,11 @@ const Button = styled.div`
     opacity: 0;
     transition: 0.2s;
   }
+`;
+
+const Thumb = styled.div`
+  max-width: 360px;
+  flex: 1;
 `;
 
 const Desc = styled.div`

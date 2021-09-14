@@ -58,6 +58,7 @@
         "react/require-default-props": "off",
         "react/prop-types": "off",
         "no-param-reassign" : "off",
-        "max-len" : "off"
+        "max-len" : "off",
+        "no-underscore-dangle" : "off"
     }
 }

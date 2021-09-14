@@ -7,7 +7,7 @@ import { IconVisual, IconYoutubeMusic } from '../../../../icons';
 
 const Visual = ({ onClose }) => (
   <Container>
-    <ImageBox>
+    <VisualBox>
       <IconVisual />
       <Text>
         <Header>
@@ -23,7 +23,7 @@ const Visual = ({ onClose }) => (
       <Button onClick={onClose}>
         <MdClose />
       </Button>
-    </ImageBox>
+    </VisualBox>
   </Container>
 )
 
@@ -31,13 +31,9 @@ const Container = styled.div`
   height: 260px;
   position: relative;
   top: 20px;
-  
-//  @media screen and (max-width: 768px) {
-//  display: none;
-//}
 `;
 
-const ImageBox = styled.div`
+const VisualBox = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -69,6 +65,7 @@ const Header = styled.div`
     height: 24px;
     object-fit: cover;
   }
+  
 `;
 
 const Center = styled.div`
@@ -80,6 +77,7 @@ const Center = styled.div`
   max-width: 440px;
   height: 80px;
   white-space: nowrap;
+  
 `;
 
 const Footer = styled.div`

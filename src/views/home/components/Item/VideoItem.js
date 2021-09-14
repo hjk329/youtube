@@ -18,6 +18,7 @@ const VideoItem = ({ item }) => {
     contentDetails,
     channel,
   } = item;
+  const duration = moment.duration(contentDetails.duration)
 
   return (
     <Container>
@@ -30,7 +31,7 @@ const VideoItem = ({ item }) => {
               <Button><MdPlaylistPlay /></Button>
             </Top>
             <Bottom>
-              {/* {moment.duration(contentDetails.duration)} */}
+              {moment(duration._milliseconds).format('mm:ss')}
             </Bottom>
           </Screen>
         </RatioBox>

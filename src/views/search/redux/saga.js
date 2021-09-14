@@ -17,14 +17,17 @@ function* searchVideosSaga({ payload }) {
       id: item.snippet.channelId,
       part: 'snippet, statistics',
     })
-    const videoInfo = await API.getVideos({
-      id: item.id.videoId,
-      part: 'statistics, snippet',
-    })
+    let videoInfo;
+    if (item.id.videoId) {
+      videoInfo = await API.getVideos({
+        id: item.id.videoId,
+        part: 'statistics, snippet',
+      })
+    }
     return {
       ...item,
       channel: channelResult.data.items[0],
-      videoInfo: videoInfo.data.items[0],
+      videoInfo: videoInfo?.data?.items?.[0],
     }
   }))
   const state = yield select()

@@ -8,7 +8,7 @@ const searchSlice = createSlice({
   name: 'search',
   initialState: {
     results: [],
-    nextPageToken: {},
+    nextPageToken: '',
     playlist: {},
     channelSection: {},
   },

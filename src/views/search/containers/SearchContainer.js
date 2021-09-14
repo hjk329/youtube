@@ -17,23 +17,24 @@ const SearchContainer = () => {
   const { query } = match.params
   const searchResults = useSelector((state) => state.search.results)
   const nextPageToken = useSelector((state) => state.search.nextPageToken)
-  const [pageToken, setPageToken] = useState(nextPageToken)
+  const [pageToken, setPageToken] = useState(nextPageToken || '')
   const [sentinelRef, inView] = useIntersection()
 
   const dispatch = useDispatch()
 
   const searchVideo = () => {
+    console.log(pageToken)
     dispatch(searchVideos({
       part: 'snippet, id',
       q: query,
       maxResults: 5,
       regionCode: 'KR',
-      // pageToken,
+      pageToken,
     }))
   }
   useEffect(() => {
     searchVideo()
-  }, [query])
+  }, [query, pageToken])
 
   useEffect(() => {
     if (inView) {
@@ -41,11 +42,11 @@ const SearchContainer = () => {
     }
   }, [inView])
 
-  // useEffect(() => {
-  //   dispatch(setSearchVideos({
-  //     results: [],
-  //   }))
-  // }, [query])
+  useEffect(() => {
+    dispatch(setSearchVideos(
+      [],
+    ))
+  }, [query])
 
   return (
     <Container className={cn({ shortcutState })}>
