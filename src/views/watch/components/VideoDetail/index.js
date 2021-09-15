@@ -8,6 +8,7 @@ import ChannelInfo from './Channelnfo';
 import VideoInfo from './VideoInfo';
 import RelatedVideosContainer from '../../containers/RelatedVideosContainer';
 import GetCommentsContainer from '../../containers/GetCommentsContainer';
+import { StyledButton } from '../../../shared/components/Button/DefaultButton';
 
 const VideoDetail = ({
   info,
