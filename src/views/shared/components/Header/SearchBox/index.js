@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { MdMic, MdSearch } from 'react-icons/all';
-import { useHistory } from 'react-router-dom';
 import qs from 'qs';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useWindowSize } from 'rooks';
+
+import { MdMic, MdSearch } from 'react-icons/all';
 
 import { DefaultButton } from '../../Button/DefaultButton';
 import { showShortcuts } from '../../../redux/slice';
@@ -25,6 +27,10 @@ const SearchBox = () => {
   const onChange = (e) => {
     setQuery(e.target.value)
   }
+
+  // const { innerWidth } = useWindowSize();
+  // const small = innerWidth <= 639
+
   return (
     <Container>
       <Form onSubmit={onSubmit}>
@@ -53,12 +59,12 @@ const Container = styled.div`
   padding: 0 4px;
   height: 30px;
   flex-basis: 728px;
-  
-  @media screen and (max-width:640px) {
-    display: none;
-  }
-  
-  
+
+  //@media screen and (max-width:640px) {
+  //  display: none;
+  //}
+
+
 `;
 
 const Form = styled.form`
@@ -66,6 +72,10 @@ const Form = styled.form`
   display: flex;
   align-items: center;
   height: 100%;
+  
+  @media screen and (max-width: 640px) {
+    width: unset;
+  }
 `;
 
 const Label = styled.label`
@@ -73,6 +83,10 @@ const Label = styled.label`
   height: 100%;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const Input = styled.input`
@@ -87,38 +101,51 @@ const Input = styled.input`
 `;
 
 const SearchButton = styled(DefaultButton)`
-    width: 51px;
-    height: 30px;
-    background: #f8f8f8;
-    border: 1px solid rgba(204, 204, 204);
-    border-left: 1px solid transparent;
-    border-radius: 0 2px 2px 0;
-    transition: 0.3s;
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: #767676;
-    }
+  width: 51px;
+  height: 30px;
+  background: #f8f8f8;
+  border: 1px solid rgba(204, 204, 204);
+  border-left: 1px solid transparent;
+  border-radius: 0 2px 2px 0;
+  transition: 0.3s;
 
-    &:hover {
-      background: rgb(240, 240, 240);
-      svg {
-        fill: rgb(51, 51, 51);
-      }
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: #767676;
+  }
+
+  &:hover {
+    background: rgb(240, 240, 240);
+
+    svg {
+      fill: rgb(51, 51, 51);
     }
+  }
+
+  @media screen and (max-width: 640px) {
+    background: none;
+    fill: rgb(3, 3, 3);
+    border-color: transparent;
+    &:hover {
+      background: none;
+    }
+  }
 
 `;
 
 const MicButton = styled(DefaultButton)`
-    padding: 8px;
-    border-radius: 50%;
+  padding: 8px;
+  border-radius: 50%;
   margin-left: 4px;
-    svg {
-      width: 24px;
-      height: 24px;
-      fill: rgb(96, 96, 96);
-    }
-    background: #f8f8f8;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: rgb(96, 96, 96);
+  }
+
+  background: #f8f8f8;
 `;
 
 export default SearchBox;
