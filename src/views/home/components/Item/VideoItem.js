@@ -31,7 +31,8 @@ const VideoItem = ({ item }) => {
               <Button><MdPlaylistPlay /></Button>
             </Top>
             <Bottom>
-              {moment(duration._milliseconds).format('mm:ss')}
+              {moment(duration._milliseconds)
+                .format('mm:ss')}
             </Bottom>
           </Screen>
         </RatioBox>
@@ -70,17 +71,30 @@ const ContentBox = styled(Link)`
 const Screen = styled.div`
   position: absolute;
   top: 0;
-  right:0;
-  padding: 10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
 `;
 
 const Top = styled.div`
-    
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
 `;
 
 const Bottom = styled.div`
-    
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 4px;
+  padding: 5px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
 `;
 
 const Button = styled.div`
