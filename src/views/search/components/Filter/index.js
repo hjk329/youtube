@@ -1,29 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { MdTune } from 'react-icons/all';
 
-import IconButton from '../../../shared/components/Button/IconButton';
+import cn from 'classnames';
+
+import FilterItem from './FilterItem';
 
 const Filter = () => {
-  const ae = 1;
+  const [open, setOpen] = useState(false)
+
   return (
-    <Container>
-      <Content>
+    <Container className={cn({ isActive: open })}>
+      <Title onClick={() => setOpen((v) => !v)}>
         <Icon><MdTune /></Icon>
         필터
-      </Content>
+      </Title>
+      <FilterItemBox className={cn({ isOpen: open })}>
+        <FilterItem
+          title="업로드 날짜"
+          dropmenu={[
+            <DropMenuItem>지난 1시간</DropMenuItem>,
+            <DropMenuItem>오늘</DropMenuItem>,
+            <DropMenuItem>이번 주 </DropMenuItem>,
+            <DropMenuItem>이번 달</DropMenuItem>,
+            <DropMenuItem>올해</DropMenuItem>,
+          ]}
+        />
+        <FilterItem
+          title="구분"
+          dropmenu={[
+            <DropMenuItem>지난 1시간</DropMenuItem>,
+            <DropMenuItem>오늘</DropMenuItem>,
+            <DropMenuItem>이번 주 </DropMenuItem>,
+            <DropMenuItem>이번 달</DropMenuItem>,
+            <DropMenuItem>올해</DropMenuItem>,
+          ]}
+        />
+        <FilterItem
+          title="길이"
+          dropmenu={[
+            <DropMenuItem>지난 1시간</DropMenuItem>,
+            <DropMenuItem>오늘</DropMenuItem>,
+            <DropMenuItem>이번 주 </DropMenuItem>,
+            <DropMenuItem>이번 달</DropMenuItem>,
+            <DropMenuItem>올해</DropMenuItem>,
+          ]}
+        />
+        <FilterItem
+          title="정렬 기준"
+          dropmenu={[
+            <DropMenuItem>지난 1시간</DropMenuItem>,
+            <DropMenuItem>오늘</DropMenuItem>,
+            <DropMenuItem>이번 주 </DropMenuItem>,
+            <DropMenuItem>이번 달</DropMenuItem>,
+            <DropMenuItem>올해</DropMenuItem>,
+          ]}
+        />
+      </FilterItemBox>
     </Container>
   )
 }
 
 const Container = styled.div`
-  margin-top: 60px;
+  position: relative;
+  margin-bottom: 32px;
+
+  &.isActive {
+    height: 100%;
+  }
 `;
 
-const Content = styled.div`
+const Title = styled.div`
   display: flex;
   align-items: center;
+  height: 37px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
@@ -33,6 +84,7 @@ const Content = styled.div`
   &:hover {
     color: #333;
     font-weight: bold;
+
     svg {
       fill: #333;
     }
@@ -49,4 +101,19 @@ const Icon = styled.div`
   }
 `;
 
+const FilterItemBox = styled.div`
+  display: none;
+  width: 100%;
+
+  &.isOpen {
+    display: flex;
+  }
+`;
+
+const DropMenuItem = styled.div`
+  padding-top: 15px;
+  font-size: 12px;
+  color: #606060;
+  line-height: 17px;
+`;
 export default Filter;

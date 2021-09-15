@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import _ from 'lodash';
 
 import SearchVideoItem from '../Item/SearchVideoItem';
-import SearchVideoItems from '../Item/SearchVideoItems';
 
 const SearchVideosList = ({ results = [] }) => {
   if (_.isEmpty(results)) return null;

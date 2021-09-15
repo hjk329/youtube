@@ -8,7 +8,6 @@ import { searchVideos, setSearchVideos } from '../redux/slice';
 import SearchDetail from '../components/SearchDetail';
 import { useIntersection } from '../../../hooks/useIntersection';
 import Sidebar from '../../shared/components/Sidebar';
-import { showShortcuts } from '../../shared/redux/slice';
 import Shortcuts from '../../shared/components/Sidebar/components/Shortcuts';
 
 const SearchContainer = () => {
@@ -23,7 +22,6 @@ const SearchContainer = () => {
   const dispatch = useDispatch()
 
   const searchVideo = () => {
-    console.log(pageToken)
     dispatch(searchVideos({
       part: 'snippet, id',
       q: query,
