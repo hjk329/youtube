@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
 import { MdTune } from 'react-icons/all';
-
 import cn from 'classnames';
+import { Link, useParams } from 'react-router-dom';
+import qs from 'qs';
 
 import FilterItem from './FilterItem';
 
 const Filter = () => {
   const [open, setOpen] = useState(false)
+  const { query } = useParams()
 
   return (
     <Container className={cn({ isActive: open })}>
@@ -110,7 +111,8 @@ const FilterItemBox = styled.div`
   }
 `;
 
-const DropMenuItem = styled.div`
+const DropMenuItem = styled(Link)`
+  display: block;
   padding-top: 15px;
   font-size: 12px;
   color: #606060;
