@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const ChannelAvatarInfo = ({
@@ -10,7 +10,7 @@ const ChannelAvatarInfo = ({
   channel,
 }) => (
   <Container>
-    <Thumb to={`/channel/${channel.id}`}>
+    <Thumb to={`/channel/${channel?.id}`}>
       <img src={imageUrl} alt="" />
     </Thumb>
     <Desc>

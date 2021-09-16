@@ -5,6 +5,7 @@ import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
 import AvatarInfo from '../AvatarInfo';
 import RatioBox from '../../../shared/components/RatioBox';
+import ChannelAvatarInfo from '../AvatarInfo/ChannelAvatarInfo';
 
 const SearchVideoItem = ({ item }) => {
   const {
@@ -15,28 +16,45 @@ const SearchVideoItem = ({ item }) => {
   } = item;
   return (
     <Container>
-      <ContentBox to={`/watch/${id?.videoId}`}>
-        <Thumb>
-          <RatioBox width={360} height={202}>
-            <img src={snippet?.thumbnails?.high?.url} alt="" />
-            <Screen>
-              <Button><MdAccessTime /></Button>
-              <Button><MdPlaylistPlay /></Button>
-            </Screen>
-          </RatioBox>
-        </Thumb>
+      {
+        videoInfo ? (
+          <ContentBox to={`/watch/${id?.videoId}`}>
+            <Thumb>
+              <RatioBox width={360} height={202}>
+                <img src={snippet?.thumbnails?.high?.url} alt="" />
+                <Screen>
+                  <Button><MdAccessTime /></Button>
+                  <Button><MdPlaylistPlay /></Button>
+                </Screen>
+              </RatioBox>
+            </Thumb>
 
-        <Desc>
-          <AvatarInfo
-            imageUrl={channel?.snippet?.thumbnails?.high.url}
-            title={snippet?.title}
-            name={channel?.snippet?.title}
-            views={videoInfo?.statistics?.viewCount}
-            publishedAt={snippet?.publishedAt}
-            description={videoInfo?.snippet?.description}
-          />
-        </Desc>
-      </ContentBox>
+            <Desc>
+              <AvatarInfo
+                imageUrl={channel?.snippet?.thumbnails?.high.url}
+                title={snippet?.title}
+                name={channel?.snippet?.title}
+                views={videoInfo?.statistics?.viewCount}
+                publishedAt={snippet?.publishedAt}
+                description={videoInfo?.snippet?.description}
+              />
+            </Desc>
+          </ContentBox>
+        )
+          : (
+            <ChannelBox>
+              <ChannelAvatarInfo
+                imageUrl={channel?.snippet?.thumbnails?.high?.url}
+                title={channel?.snippet?.title}
+                subscriptions={channel?.statistics?.subscriberCount}
+                posts={channel?.statistics?.videoCount}
+                description={channel?.snippet?.description}
+              />
+            </ChannelBox>
+
+          )
+      }
+
     </Container>
   )
 }
@@ -78,6 +96,10 @@ const Button = styled.div`
 const Thumb = styled.div`
   max-width: 360px;
   flex: 1;
+`;
+
+const ChannelBox = styled.div`
+    
 `;
 
 const Desc = styled.div`
