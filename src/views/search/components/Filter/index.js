@@ -31,31 +31,42 @@ const Filter = () => {
         <FilterItem
           title="구분"
           dropmenu={[
-            <DropMenuItem>지난 1시간</DropMenuItem>,
-            <DropMenuItem>오늘</DropMenuItem>,
-            <DropMenuItem>이번 주 </DropMenuItem>,
-            <DropMenuItem>이번 달</DropMenuItem>,
-            <DropMenuItem>올해</DropMenuItem>,
+            <DropMenuItem>동영상</DropMenuItem>,
+            <DropMenuItem>채널</DropMenuItem>,
+            <DropMenuItem>채널 목록</DropMenuItem>,
+            <DropMenuItem>영화</DropMenuItem>,
           ]}
         />
         <FilterItem
           title="길이"
           dropmenu={[
-            <DropMenuItem>지난 1시간</DropMenuItem>,
-            <DropMenuItem>오늘</DropMenuItem>,
-            <DropMenuItem>이번 주 </DropMenuItem>,
-            <DropMenuItem>이번 달</DropMenuItem>,
-            <DropMenuItem>올해</DropMenuItem>,
+            <DropMenuItem to={`/results/${query}?${qs.stringify({
+              duration: 'short',
+            })}`}
+            >
+              4분 미만
+            </DropMenuItem>,
+            <DropMenuItem to={`/results/${query}?${qs.stringify({
+              duration: 'medium',
+            })}`}
+            >
+              4분~20분
+            </DropMenuItem>,
+            <DropMenuItem to={`/results/${query}?${qs.stringify({
+              duration: 'long',
+            })}`}
+            >
+              20분 초과
+            </DropMenuItem>,
           ]}
         />
         <FilterItem
           title="정렬 기준"
           dropmenu={[
-            <DropMenuItem>지난 1시간</DropMenuItem>,
-            <DropMenuItem>오늘</DropMenuItem>,
-            <DropMenuItem>이번 주 </DropMenuItem>,
-            <DropMenuItem>이번 달</DropMenuItem>,
-            <DropMenuItem>올해</DropMenuItem>,
+            <DropMenuItem>관련성</DropMenuItem>,
+            <DropMenuItem>업로드날짜</DropMenuItem>,
+            <DropMenuItem>조회수</DropMenuItem>,
+            <DropMenuItem>평점</DropMenuItem>,
           ]}
         />
       </FilterItemBox>

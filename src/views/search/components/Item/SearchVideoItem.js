@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 
+import moment from 'moment';
+
 import AvatarInfo from '../AvatarInfo';
 import RatioBox from '../../../shared/components/RatioBox';
 import ChannelAvatarInfo from '../AvatarInfo/ChannelAvatarInfo';
@@ -14,6 +16,9 @@ const SearchVideoItem = ({ item }) => {
     channel,
     videoInfo,
   } = item;
+
+  const duration = moment.duration(videoInfo?.contentDetails?.duration)
+
   return (
     <Container>
       {
@@ -23,8 +28,14 @@ const SearchVideoItem = ({ item }) => {
               <RatioBox width={360} height={202}>
                 <img src={snippet?.thumbnails?.high?.url} alt="" />
                 <Screen>
-                  <Button><MdAccessTime /></Button>
-                  <Button><MdPlaylistPlay /></Button>
+                  <Top>
+                    <Button><MdAccessTime /></Button>
+                    <Button><MdPlaylistPlay /></Button>
+                  </Top>
+                  <Bottom>
+                    {moment(duration._milliseconds)
+                      .format('mm:ss')}
+                  </Bottom>
                 </Screen>
               </RatioBox>
             </Thumb>
@@ -78,10 +89,30 @@ const ContentBox = styled(Link)`
 const Screen = styled.div`
   position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+const Top = styled.div`
+  position: absolute;
+  top: 0;
   right: 0;
   padding: 10px;
 `;
 
+const Bottom = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 4px;
+  padding: 5px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+`;
 const Button = styled.div`
   svg {
     background: #111;

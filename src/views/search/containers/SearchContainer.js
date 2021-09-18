@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouteMatch } from 'react-router-dom';
+import { useLocation, useRouteMatch } from 'react-router-dom';
 import cn from 'classnames';
+
+import qs from 'qs';
 
 import { searchVideos, setSearchVideos } from '../redux/slice';
 import SearchDetail from '../components/SearchDetail';
@@ -20,7 +22,8 @@ const SearchContainer = () => {
   const [sentinelRef, inView] = useIntersection()
 
   const dispatch = useDispatch()
-
+  const location = useLocation();
+  const { videoDuration } = qs.parse(location.search, { ignoreQueryPrefix: true });
   const searchVideo = () => {
     dispatch(searchVideos({
       part: 'snippet, id',
@@ -28,11 +31,13 @@ const SearchContainer = () => {
       maxResults: 5,
       regionCode: 'KR',
       pageToken,
+      // publishedAfter: new Date('2021-09-01').toISOString(),
+      videoDuration,
     }))
   }
   useEffect(() => {
     searchVideo()
-  }, [query, pageToken])
+  }, [query, pageToken, videoDuration])
 
   useEffect(() => {
     if (inView) {

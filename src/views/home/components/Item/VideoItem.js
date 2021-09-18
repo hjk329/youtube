@@ -4,11 +4,8 @@ import { Link } from 'react-router-dom';
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
 import moment from 'moment';
 
-import { useDispatch } from 'react-redux';
-
 import AvatarInfo from '../../../shared/components/AvatarInfo';
 import RatioBox from '../../../shared/components/RatioBox';
-import { showShortcuts } from '../../../shared/redux/slice';
 
 const VideoItem = ({ item }) => {
   const {

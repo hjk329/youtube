@@ -2,9 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const IconButton = ({ icon, text, size }) => (
+const IconButton = ({
+  image, icon, text, size,
+}) => (
   <Container size={size}>
-    {icon}
+    {
+      image && <img src={image} alt="" />
+    }
+    { icon || null}
     {text && <Text>{text}</Text>}
   </Container>
 )

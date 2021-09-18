@@ -14,15 +14,15 @@ import { Link } from 'react-router-dom';
 
 import ActionButton from '../../../Button/ActionButton';
 import IconButton from '../../../Button/IconButton';
-import {
-  IconEdu,
-  IconGame,
-  IconLive,
-  IconMovie,
-  IconMusic,
-  IconNews,
-  IconSports, IconVid,
-} from '../../../../../../icons';
+
+import IconMusic from '../../../../../../assets/IconMusic.jpeg';
+import IconSports from '../../../../../../assets/IconSports.jpeg';
+import IconGame from '../../../../../../assets/IconGame.jpeg';
+import IconMovie from '../../../../../../assets/IconMovie.jpeg';
+import IconNews from '../../../../../../assets/IconNews.jpeg';
+import IconLiveStreaming from '../../../../../../assets/IconLiveStreaming.jpeg';
+import IconEducation from '../../../../../../assets/IconEducation.jpeg';
+import Icon360Degree from '../../../../../../assets/Icon360Degree.jpeg';
 
 const Contents = () => (
   <Container>
@@ -52,14 +52,14 @@ const Contents = () => (
     </MenuBox>
     <MenuBox>
       <p> 인기 YOUTUBE </p>
-      <IconButton icon={<IconMusic />} text="음악" />
-      <IconButton icon={<IconSports />} text="스포츠" />
-      <IconButton icon={<IconGame />} text="게임" />
-      <IconButton icon={<IconMovie />} text="영화" />
-      <IconButton icon={<IconNews />} text="뉴스" />
-      <IconButton icon={<IconLive />} text="실시간" />
-      <IconButton icon={<IconEdu />} text="학습" />
-      <IconButton icon={<IconVid />} text="360° 동영상" />
+      <IconButton image={IconMusic} text="음악" />
+      <IconButton image={IconSports} text="스포츠" />
+      <IconButton image={IconGame} text="게임" />
+      <IconButton image={IconMovie} text="영화" />
+      <IconButton image={IconNews} text="뉴스" />
+      <IconButton image={IconLiveStreaming} text="실시간" />
+      <IconButton image={IconEducation} text="학습" />
+      <IconButton image={Icon360Degree} text="360° 동영상" />
     </MenuBox>
     <MenuBox>
       <ActionButton>

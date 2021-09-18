@@ -21,7 +21,7 @@ function* searchVideosSaga({ payload }) {
     if (item.id.videoId) {
       videoInfo = await API.getVideos({
         id: item.id.videoId,
-        part: 'statistics, snippet',
+        part: 'statistics, snippet, contentDetails',
       })
     }
     return {
