@@ -23,21 +23,22 @@ const SearchContainer = () => {
 
   const dispatch = useDispatch()
   const location = useLocation();
-  const { videoDuration } = qs.parse(location.search, { ignoreQueryPrefix: true });
+  const { videoDuration, publishedAfter, order } = qs.parse(location.search, { ignoreQueryPrefix: true })
   const searchVideo = () => {
     dispatch(searchVideos({
       part: 'snippet, id',
       q: query,
       maxResults: 5,
       regionCode: 'KR',
-      pageToken,
-      // publishedAfter: new Date('2021-09-01').toISOString(),
       videoDuration,
+      pageToken,
+      publishedAfter,
+      order,
     }))
   }
   useEffect(() => {
     searchVideo()
-  }, [query, pageToken, videoDuration])
+  }, [query, pageToken, videoDuration, publishedAfter, order])
 
   useEffect(() => {
     if (inView) {
@@ -49,7 +50,7 @@ const SearchContainer = () => {
     dispatch(setSearchVideos(
       [],
     ))
-  }, [query])
+  }, [query, videoDuration, publishedAfter, order])
 
   return (
     <Container className={cn({ shortcutState })}>
