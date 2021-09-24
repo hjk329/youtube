@@ -30,10 +30,12 @@ const Filter = () => {
         <FilterItem
           title="업로드 날짜"
           dropmenu={[
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              publishedAfter: before1Hour,
-            })}`}
+            <DropMenuItem
+              to={`/results/${query}?${qs.stringify({
+                ...queryParams,
+                publishedAfter: before1Hour,
+              })}`}
+              className={cn({ isActive: queryParams?.publishedAfter === before1Hour })}
             >
               지난 1시간
             </DropMenuItem>,
@@ -70,10 +72,33 @@ const Filter = () => {
         <FilterItem
           title="구분"
           dropmenu={[
-            <DropMenuItem>동영상</DropMenuItem>,
-            <DropMenuItem>채널</DropMenuItem>,
-            <DropMenuItem>채널 목록</DropMenuItem>,
-            <DropMenuItem>영화</DropMenuItem>,
+            <DropMenuItem
+              to={`/results/${query}?${qs.stringify({
+                ...queryParams,
+                type: 'video',
+              })}`}
+              className={cn({ isActive: queryParams?.type === 'video' })}
+            >
+              동영상
+            </DropMenuItem>,
+            <DropMenuItem
+              to={`/results/${query}?${qs.stringify({
+                ...queryParams,
+                type: 'channel',
+              })}`}
+              className={cn({ isActive: queryParams?.type === 'channel' })}
+            >
+              채널
+            </DropMenuItem>,
+            <DropMenuItem
+              to={`/results/${query}?${qs.stringify({
+                ...queryParams,
+                type: 'playlist',
+              })}`}
+              className={cn({ isActive: queryParams?.type === 'playlist' })}
+            >
+              채널 목록
+            </DropMenuItem>,
           ]}
         />
         <FilterItem
@@ -194,5 +219,9 @@ const DropMenuItem = styled(Link)`
   font-size: 12px;
   color: #606060;
   line-height: 17px;
+  
+  &.isActive {
+    font-weight: bold;
+  }
 `;
 export default Filter;

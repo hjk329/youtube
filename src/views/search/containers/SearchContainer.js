@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useRouteMatch } from 'react-router-dom';
 import cn from 'classnames';
-
 import qs from 'qs';
 
 import { searchVideos, setSearchVideos } from '../redux/slice';
@@ -23,7 +22,10 @@ const SearchContainer = () => {
 
   const dispatch = useDispatch()
   const location = useLocation();
-  const { videoDuration, publishedAfter, order } = qs.parse(location.search, { ignoreQueryPrefix: true })
+  const {
+    videoDuration, publishedAfter, order, type,
+  } = qs.parse(location.search, { ignoreQueryPrefix: true })
+
   const searchVideo = () => {
     dispatch(searchVideos({
       part: 'snippet, id',
@@ -34,11 +36,12 @@ const SearchContainer = () => {
       pageToken,
       publishedAfter,
       order,
+      type,
     }))
   }
   useEffect(() => {
     searchVideo()
-  }, [query, pageToken, videoDuration, publishedAfter, order])
+  }, [query, pageToken, videoDuration, publishedAfter, order, type])
 
   useEffect(() => {
     if (inView) {

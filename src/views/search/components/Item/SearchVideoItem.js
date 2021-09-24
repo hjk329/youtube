@@ -129,16 +129,16 @@ const Thumb = styled.div`
   flex: 1;
 `;
 
-const ChannelBox = styled.div`
-    
-`;
-
 const Desc = styled.div`
   margin-left: 16px;
   flex: 1;
   @media screen and (max-width: 280px) {
     display: none;
   }
+`;
+
+const ChannelBox = styled.div`
+
 `;
 
 export default SearchVideoItem;
