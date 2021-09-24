@@ -3,8 +3,7 @@ import {
 } from 'redux-saga/effects';
 
 import {
-  getChannelSection,
-  getPlaylist, searchVideos, setChannelSection, setNextPageToken, setPlaylist, setSearchVideos,
+  getPlaylist, searchVideos, setNextPageToken, setPlaylist, setSearchVideos,
 } from './slice';
 import { API } from '../../../api/request';
 
@@ -43,15 +42,9 @@ function* getPlaylistSaga({ payload }) {
   yield put(setPlaylist(result.data))
 }
 
-function* getChannelSectionSaga({ payload }) {
-  const result = yield call(API.getChannelSection, payload)
-  yield put(setChannelSection(result.data))
-}
-
 function* saga() {
   yield takeLatest(searchVideos.type, searchVideosSaga)
   yield takeLatest(getPlaylist.type, getPlaylistSaga)
-  yield takeLatest(getChannelSection.type, getChannelSectionSaga)
 }
 
 export default saga;

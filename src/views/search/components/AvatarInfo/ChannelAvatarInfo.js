@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ChannelAvatarInfo = ({
+  id,
   imageUrl,
   title,
   subscriptions,
@@ -16,7 +18,7 @@ const ChannelAvatarInfo = ({
   }
   return (
     <Container>
-      <ContentBox>
+      <ContentBox to={`/channel/${id}`}>
         <Thumb>
           <img src={imageUrl} alt="" />
         </Thumb>
@@ -44,7 +46,7 @@ const Container = styled.div`
 
 `;
 
-const ContentBox = styled.div`
+const ContentBox = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;

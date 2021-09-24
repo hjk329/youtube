@@ -9,8 +9,6 @@ export const API = {
 
   getComments: (data) => request(requestConstants.GET, '/commentThreads', data),
 
-  getCategories: (data) => request(requestConstants.GET, '/videoCategories', data),
-
   getPlaylists: (data) => request(requestConstants.GET, '/playlistItems', data),
 
   getChannelSection: (data) => request(requestConstants.GET, '/channelSections', data),

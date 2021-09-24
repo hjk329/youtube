@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { MdAccessTime, MdPlaylistPlay } from 'react-icons/all';
-
 import moment from 'moment';
 
 import AvatarInfo from '../AvatarInfo';
@@ -55,6 +54,7 @@ const SearchVideoItem = ({ item }) => {
           : (
             <ChannelBox>
               <ChannelAvatarInfo
+                id={channel?.id}
                 imageUrl={channel?.snippet?.thumbnails?.high?.url}
                 title={channel?.snippet?.title}
                 subscriptions={channel?.statistics?.subscriberCount}

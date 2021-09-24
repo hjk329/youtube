@@ -2,7 +2,6 @@ import { createAction, createSlice } from '@reduxjs/toolkit';
 
 export const searchVideos = createAction('search/searchVideos')
 export const getPlaylist = createAction('search/getPlaylist')
-export const getChannelSection = createAction('search/getChannelSection')
 
 const searchSlice = createSlice({
   name: 'search',
@@ -10,7 +9,6 @@ const searchSlice = createSlice({
     results: [],
     nextPageToken: '',
     playlist: {},
-    channelSection: {},
   },
   reducers: {
     setSearchVideos: (state, { payload }) => {
@@ -22,13 +20,10 @@ const searchSlice = createSlice({
     setPlaylist: (state, { payload }) => {
       state.playlist = payload;
     },
-    setChannelSection: (state, { payload }) => {
-      state.channelSection = payload;
-    },
   },
 })
 
 export const {
-  setSearchVideos, setNextPageToken, setPlaylist, setChannelSection,
+  setSearchVideos, setNextPageToken, setPlaylist,
 } = searchSlice.actions;
 export default searchSlice.reducer;
