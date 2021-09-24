@@ -49,7 +49,6 @@ const Container = styled.div`
 const ContentBox = styled(Link)`
   display: flex;
   align-items: center;
-  justify-content: center;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-right: none;
   border-left: none;

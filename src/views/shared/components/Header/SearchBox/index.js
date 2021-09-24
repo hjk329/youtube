@@ -19,9 +19,7 @@ const SearchBox = () => {
   const onSubmit = (e) => {
     dispatch(showShortcuts(false))
     e.preventDefault()
-    history.push(`/results/${qs.stringify({
-      search_query: query,
-    })}`)
+    history.push(`/results/${query}`)
   }
 
   const onChange = (e) => {
