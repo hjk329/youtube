@@ -12,7 +12,6 @@ import Sidebar from '../../shared/components/Sidebar';
 import Shortcuts from '../../shared/components/Sidebar/components/Shortcuts';
 
 const SearchContainer = () => {
-  const shortcutState = useSelector((state) => state.app.shortcuts)
   const match = useRouteMatch()
   const { query } = match.params
   const searchResults = useSelector((state) => state.search.results)
@@ -53,10 +52,7 @@ const SearchContainer = () => {
   }, [query, publishedAfter, order, type])
 
   return (
-    <Container className={cn({ shortcutState })}>
-      {
-        !shortcutState ? <Sidebar /> : <Shortcuts />
-      }
+    <Container>
       <SearchDetail results={searchResults} />
       <Sentinel ref={sentinelRef} />
     </Container>
@@ -64,11 +60,7 @@ const SearchContainer = () => {
 }
 
 const Container = styled.div`
-  padding-left: 260px;
 
-  &.shortcutState {
-    padding-left: 72px;
-  }
 `;
 
 const Sentinel = styled.div`

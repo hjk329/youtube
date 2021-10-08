@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import qs from 'qs';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useWindowSize } from 'rooks';
-
 import { MdMic, MdSearch } from 'react-icons/all';
 
 import { DefaultButton } from '../../Button/DefaultButton';
-import { showShortcuts } from '../../../redux/slice';
 
 const SearchBox = () => {
   const history = useHistory()
@@ -17,7 +13,6 @@ const SearchBox = () => {
   const [query, setQuery] = useState('')
 
   const onSubmit = (e) => {
-    dispatch(showShortcuts(false))
     e.preventDefault()
     history.push(`/results/${query}`)
   }
@@ -25,9 +20,6 @@ const SearchBox = () => {
   const onChange = (e) => {
     setQuery(e.target.value)
   }
-
-  // const { innerWidth } = useWindowSize();
-  // const small = innerWidth <= 639
 
   return (
     <Container>
