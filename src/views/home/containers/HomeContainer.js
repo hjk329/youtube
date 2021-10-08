@@ -6,25 +6,18 @@ import cn from 'classnames';
 import { getVideos } from '../redux/slice';
 import VideoList from '../components/List/VideoList';
 import Visual from '../components/Visual';
-import { useMQ } from '../../../hooks/mediaQuery';
 import { useIntersection } from '../../../hooks/useIntersection';
 import IosLoader from '../../shared/components/Loader/IosLoader';
 
 const HomeContainer = () => {
+  const normalSidebar = useSelector((state) => state.app.normalSidebar)
+
   const dispatch = useDispatch()
 
   const video = useSelector((state) => state.home.video)
   const nextPageToken = useSelector((state) => state.home.nextToken)
-  const shortcutState = useSelector((state) => state.app.shortcuts)
 
   const [pageToken, setPageToken] = useState(nextPageToken)
-  const {
-    isWideDesktop,
-    isDesktop,
-    isTablet,
-    isMobile,
-    isNotMobile,
-  } = useMQ()
 
   const getVideo = () => {
     dispatch(getVideos({
@@ -54,16 +47,7 @@ const HomeContainer = () => {
   }, [inView])
 
   return (
-    <Container
-      className={cn({
-        isWideDesktop,
-        isDesktop,
-        isTablet,
-        isMobile,
-        shortcutState,
-      })}
-      state={shortcutState}
-    >
+    <Container normalSidebar={normalSidebar}>
       {
         showVisual
         && <Visual onClose={onClose} />
@@ -79,24 +63,9 @@ const HomeContainer = () => {
 }
 
 const Container = styled.div`
-  &.isWideDesktop {
-    padding: 56px 0 0 240px;
-  }
-
-  &.isDesktop
- {
+  ${(p) => !p.normalSidebar && css`
     padding-left: 72px;
-  }
-  
-  &.shortcutState {
-    padding-left: 72px;
-  }
-
-  &.isTablet,
-  &.isMobile {
-    padding-left: 0;
-  }
-
+  `}
 `;
 
 const Sentinel = styled.div`

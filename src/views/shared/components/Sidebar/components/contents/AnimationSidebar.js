@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom';
 import { IconLogo } from '../../../../../../icons';
 import Contents from './index';
 
-const AnimationSidebar = ({ sidebar, getSidebar }) => (
+const AnimationSidebar = ({ onClick }) => (
 
-  <Container className={cn('AnimationSidebar', { open: sidebar })}>
+  <Container>
     <Logo>
-      <Button onClick={getSidebar}>
+      <Button onClick={onClick}>
         {' '}
         <MdMenu />
         {' '}
@@ -27,19 +27,7 @@ const AnimationSidebar = ({ sidebar, getSidebar }) => (
 )
 
 const Container = styled.div`
-  position: fixed;
-  width: 240px;
-  border-right: 1px solid #000;
-  top:0;
-  left:0;
-  bottom: 0;
   background: #eee;
-  z-index: 1000;
-  transform: translateX(-100%);
-  transition: 0.4s;
-  &.open {
-    transform: none;
-  }
 `;
 
 const Logo = styled(Link)`
@@ -53,11 +41,12 @@ const Logo = styled(Link)`
 const Button = styled.div`
   padding: 8px;
   cursor: pointer;
-    svg {
-      width: 24px;
-      height: 24px;
-      fill: rgb(96, 96, 96);
-    }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: rgb(96, 96, 96);
+  }
 
 `;
 
@@ -85,11 +74,11 @@ const LoginButton = styled(Link)`
   border: 1px solid rgb(6, 95, 212);
   border-radius: 2px;
 
-  svg{
+  svg {
     fill: rgb(6, 95, 212);
     margin-right: 8px;
   }
-  
+
 `;
 
 const Info = styled.div`
@@ -97,6 +86,7 @@ const Info = styled.div`
   font-size: 12px;
   font-weight: 400;
   color: #909090;
+
   a {
     font-size: 13px;
     font-weight: 500;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import {
   MdExplore, MdHome, MdRestore, MdSubscriptions, MdVideoLibrary,
-} from 'react-icons/all';
+} from 'react-icons/md';
 
 const Shortcuts = () => (
   <Container className="Shortcuts">

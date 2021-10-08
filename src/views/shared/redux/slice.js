@@ -1,28 +1,22 @@
-import { createAction, createSlice } from '@reduxjs/toolkit';
-
-export const showShortcuts = createAction('app/showShortcuts')
-export const showAnimationSidebar = createAction('app/showAnimationSidebar')
-export const getChannelSection = createAction('app/getChannelSection')
+import { createSlice } from '@reduxjs/toolkit';
 
 const appSlice = createSlice({
   name: 'app',
   initialState: {
-    shortcuts: false,
-    animationSidebar: false,
-    channelSection: {},
+    normalSidebar: true,
+    drawerSidebar: false,
   },
   reducers: {
-    setShowShortcuts: (state, { payload }) => {
-      state.shortcuts = payload
+    handleNormalSidebar: (state, { payload }) => {
+      state.normalSidebar = payload
     },
-    setShowAnimationSidebar: (state, { payload }) => {
-      state.animationSidebar = payload
-    },
-    setChannelSection: (state, { payload }) => {
-      state.channel = payload
+    handleDrawerSidebar: (state, { payload }) => {
+      state.drawerSidebar = payload
     },
   },
 })
 
-export const { setShowShortcuts, setShowAnimationSidebar, setChannelSection } = appSlice.actions;
+export const {
+  handleDrawerSidebar, handleNormalSidebar,
+} = appSlice.actions;
 export default appSlice.reducer;

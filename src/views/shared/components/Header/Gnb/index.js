@@ -3,28 +3,47 @@ import styled from 'styled-components';
 import { MdMenu } from 'react-icons/all';
 import { Link } from 'react-router-dom';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import { useMediaMatch } from 'rooks';
+
 import { IconLogo } from '../../../../../icons';
 import SearchBox from '../SearchBox';
 import Nav from './Nav';
 
-const Gnb = ({ getSidebar }) => (
-  <Container>
-    <Logo>
-      <Button className="side" onClick={getSidebar}>
-        {' '}
-        <MdMenu />
-        {' '}
-      </Button>
-      <Button className="logo" to="/">
-        {' '}
-        <IconLogo />
-        {' '}
-      </Button>
-    </Logo>
-    <SearchBox />
-    <Nav />
-  </Container>
-)
+import { handleDrawerSidebar, handleNormalSidebar } from '../../../redux/slice';
+
+const Gnb = () => {
+  const dispatch = useDispatch();
+  const small = useMediaMatch('(max-width: 1000px)');
+  const normalSidebar = useSelector((state) => state.app.normalSidebar)
+  const drawerSidebar = useSelector((state) => state.app.drawerSidebar)
+  const onClick = () => {
+    if (small) {
+      dispatch(handleDrawerSidebar(!drawerSidebar))
+    } else {
+      dispatch(handleNormalSidebar(!normalSidebar))
+    }
+  }
+  return (
+    <Container>
+      <Logo>
+        <Button className="side" onClick={onClick}>
+          {' '}
+          <MdMenu />
+          {' '}
+        </Button>
+        <Button className="logo" to="/">
+          {' '}
+          <IconLogo />
+          {' '}
+        </Button>
+      </Logo>
+      <SearchBox />
+      <Nav />
+    </Container>
+  )
+}
 
 const Container = styled.div`
   display: flex;
