@@ -102,59 +102,45 @@ const Filter = () => {
           ]}
         />
         <FilterItem
-          title="길이"
-          dropmenu={[
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              videoDuration: 'short',
-            })}`}
-            >
-              4분 미만
-            </DropMenuItem>,
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              videoDuration: 'medium',
-            })}`}
-            >
-              4분~20분
-            </DropMenuItem>,
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              videoDuration: 'long',
-            })}`}
-            >
-              20분 초과
-            </DropMenuItem>,
-          ]}
-        />
-        <FilterItem
           title="정렬 기준"
           dropmenu={[
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              order: 'relevance',
-            })}`}
+            <DropMenuItem
+              to={`/results/${query}?${qs.stringify({
+                ...queryParams,
+                order: 'relevance',
+              })}`}
+              className={cn({ isActive: queryParams?.order === 'relevance' })}
+
             >
               관련성
             </DropMenuItem>,
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              order: 'date',
-            })}`}
+            <DropMenuItem
+              to={`/results/${query}?${qs.stringify({
+                ...queryParams,
+                order: 'date',
+              })}`}
+              className={cn({ isActive: queryParams?.order === 'date' })}
+
             >
               업로드날짜
             </DropMenuItem>,
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              order: 'viewCount',
-            })}`}
+            <DropMenuItem
+              to={`/results/${query}?${qs.stringify({
+                ...queryParams,
+                order: 'viewCount',
+              })}`}
+              className={cn({ isActive: queryParams?.order === 'viewCount' })}
+
             >
               조회수
             </DropMenuItem>,
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              order: 'rating',
-            })}`}
+            <DropMenuItem
+              to={`/results/${query}?${qs.stringify({
+                ...queryParams,
+                order: 'rating',
+              })}`}
+              className={cn({ isActive: queryParams?.order === 'rating' })}
+
             >
               평점
             </DropMenuItem>,
@@ -219,7 +205,7 @@ const DropMenuItem = styled(Link)`
   font-size: 12px;
   color: #606060;
   line-height: 17px;
-  
+
   &.isActive {
     font-weight: bold;
   }

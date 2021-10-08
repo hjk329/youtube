@@ -32,8 +32,8 @@ const SearchVideoItem = ({ item }) => {
                     <Button><MdPlaylistPlay /></Button>
                   </Top>
                   <Bottom>
-                    {/* {moment(duration._milliseconds) */}
-                    {/*  .format('mm:ss')} */}
+                    {moment(duration._milliseconds)
+                      .format('mm:ss')}
                   </Bottom>
                 </Screen>
               </RatioBox>
