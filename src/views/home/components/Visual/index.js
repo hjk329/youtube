@@ -100,8 +100,9 @@ const JoinButton = styled.div`
 
 const Button = styled.div`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 50px;
+  right: 20px;
+  padding: 20px;
   cursor: pointer;
 
   svg {

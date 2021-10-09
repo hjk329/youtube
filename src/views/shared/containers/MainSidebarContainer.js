@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useMediaMatch } from 'rooks';
 
 import Shortcuts from '../components/Sidebar/components/Shortcuts';
 import Contents from '../components/Sidebar/components/contents';
+import { handleNormalSidebar } from '../redux/slice';
 
 const MainSidebarContainer = () => {
   const normalSidebar = useSelector((state) => state.app.normalSidebar)
   const location = useLocation()
   const smallScreen = useMediaMatch('(max-width: 1000px');
   const mobileScreen = useMediaMatch('(max-width: 768px');
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (smallScreen) {
+      dispatch(handleNormalSidebar(true))
+    }
+  }, [smallScreen])
 
   if (mobileScreen || location.pathname.startsWith('/watch/')) return null;
   return (

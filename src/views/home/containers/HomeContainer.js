@@ -10,7 +10,7 @@ import { useIntersection } from '../../../hooks/useIntersection';
 import IosLoader from '../../shared/components/Loader/IosLoader';
 
 const HomeContainer = () => {
-  const normalSidebar = useSelector((state) => state.app.normalSidebar)
+  const shortcut = useSelector((state) => state.app.shortcut)
 
   const dispatch = useDispatch()
 
@@ -47,7 +47,7 @@ const HomeContainer = () => {
   }, [inView])
 
   return (
-    <Container normalSidebar={normalSidebar}>
+    <Container shortcut={shortcut}>
       {
         showVisual
         && <Visual onClose={onClose} />
@@ -63,7 +63,7 @@ const HomeContainer = () => {
 }
 
 const Container = styled.div`
-  ${(p) => !p.normalSidebar && css`
+  ${(p) => p.shortcut && css`
     padding-left: 72px;
   `}
 `;
