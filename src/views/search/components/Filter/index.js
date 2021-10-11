@@ -7,18 +7,46 @@ import qs from 'qs';
 
 import FilterItem from './FilterItem';
 
+const timeSortTypes = {
+  BEFORE_1_HOUR: 'before1Hour',
+  BEFORE_1_DAY: 'before1Day',
+}
+
+export const timeSort = {
+  [timeSortTypes.BEFORE_1_HOUR]: new Date(Date.now() - 1000 * 60 * 60).toISOString(),
+  [timeSortTypes.BEFORE_1_DAY]: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
+  before1Week: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).toISOString(),
+  before1Month: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4).toISOString(),
+  before1Year: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4 * 13).toISOString(),
+}
 const Filter = () => {
   const [open, setOpen] = useState(false)
-
   const { query } = useParams()
   const location = useLocation()
-  const queryParams = qs.parse(location.search, { ignoreQueryPrefix: true })
 
-  const before1Hour = new Date(Date.now() - 1000 * 60 * 60).toISOString()
-  const before1Day = new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString()
-  const before1Week = new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).toISOString()
-  const before1Month = new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4).toISOString()
-  const before1Year = new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4 * 13).toISOString()
+  const queryParams = qs.parse(location.search, { ignoreQueryPrefix: true })
+  const timeSortData = [
+    {
+      name: timeSortTypes.BEFORE_1_HOUR,
+      text: '1시간 전',
+    },
+    {
+      name: timeSortTypes.BEFORE_1_DAY,
+      text: '하루 전',
+    },
+  ]
+
+  const timeDropDown = timeSortData.map((item, index) => (
+    <DropMenuItem
+      to={`/results/${query}?${qs.stringify({
+        ...queryParams,
+        publishedAfter: item.name,
+      })}`}
+      className={cn({ isActive: queryParams?.publishedAfter === item.name })}
+    >
+      {item.text}
+    </DropMenuItem>
+  ))
 
   return (
     <Container className={cn({ isActive: open })}>
@@ -29,45 +57,7 @@ const Filter = () => {
       <FilterItemBox className={cn({ isOpen: open })}>
         <FilterItem
           title="업로드 날짜"
-          dropmenu={[
-            <DropMenuItem
-              to={`/results/${query}?${qs.stringify({
-                ...queryParams,
-                publishedAfter: before1Hour,
-              })}`}
-              className={cn({ isActive: queryParams?.publishedAfter === before1Hour })}
-            >
-              지난 1시간
-            </DropMenuItem>,
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              publishedAfter: before1Day,
-            })}`}
-            >
-              오늘
-            </DropMenuItem>,
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              publishedAfter: before1Week,
-            })}`}
-            >
-              이번 주
-            </DropMenuItem>,
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              publishedAfter: before1Month,
-            })}`}
-            >
-              이번 달
-            </DropMenuItem>,
-            <DropMenuItem to={`/results/${query}?${qs.stringify({
-              ...queryParams,
-              publishedAfter: before1Year,
-            })}`}
-            >
-              올해
-            </DropMenuItem>,
-          ]}
+          dropmenu={timeDropDown}
         />
         <FilterItem
           title="구분"

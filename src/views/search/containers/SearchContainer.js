@@ -10,6 +10,7 @@ import SearchDetail from '../components/SearchDetail';
 import { useIntersection } from '../../../hooks/useIntersection';
 import Sidebar from '../../shared/components/Sidebar';
 import Shortcuts from '../../shared/components/Sidebar/components/Shortcuts';
+import { timeSort } from '../components/Filter';
 
 const SearchContainer = () => {
   const match = useRouteMatch()
@@ -30,7 +31,7 @@ const SearchContainer = () => {
       maxResults: 5,
       regionCode: 'KR',
       pageToken,
-      publishedAfter,
+      publishedAfter: timeSort[publishedAfter],
       order,
       type,
     }))
