@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useRouteMatch } from 'react-router-dom';
-import cn from 'classnames';
 import qs from 'qs';
 
 import { searchVideos, setSearchVideos } from '../redux/slice';
 import SearchDetail from '../components/SearchDetail';
 import { useIntersection } from '../../../hooks/useIntersection';
-import Sidebar from '../../shared/components/Sidebar';
-import Shortcuts from '../../shared/components/Sidebar/components/Shortcuts';
 import { timeSort } from '../components/Filter';
 
 const SearchContainer = () => {

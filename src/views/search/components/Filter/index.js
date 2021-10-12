@@ -87,7 +87,7 @@ const Filter = () => {
               })}`}
               className={cn({ isActive: queryParams?.type === 'playlist' })}
             >
-              채널 목록
+              재생 목록
             </DropMenuItem>,
           ]}
         />
