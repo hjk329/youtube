@@ -53,7 +53,7 @@ const SearchVideoItem = ({ item }) => {
           </ContentBox>
         )
           : id.playlistId ? (
-            <ContentBox to={`/watch/${id?.videoId}`}>
+            <ContentBox to={`/watch/${id?.playlistId}`}>
               <Thumb className="thumb">
                 <Aside classname="aside">
                   <MdPlaylistPlay />

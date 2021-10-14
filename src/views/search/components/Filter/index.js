@@ -10,14 +10,17 @@ import FilterItem from './FilterItem';
 const timeSortTypes = {
   BEFORE_1_HOUR: 'before1Hour',
   BEFORE_1_DAY: 'before1Day',
+  BEFORE_1_WEEK: 'before1Week',
+  BEFORE_1_MONTH: 'before1Month',
+  BEFORE_1_YEAR: 'before1Year',
 }
 
 export const timeSort = {
   [timeSortTypes.BEFORE_1_HOUR]: new Date(Date.now() - 1000 * 60 * 60).toISOString(),
   [timeSortTypes.BEFORE_1_DAY]: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
-  before1Week: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).toISOString(),
-  before1Month: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4).toISOString(),
-  before1Year: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4 * 13).toISOString(),
+  [timeSortTypes.BEFORE_1_WEEK]: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).toISOString(),
+  [timeSortTypes.BEFORE_1_MONTH]: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4).toISOString(),
+  [timeSortTypes.BEFORE_1_YEAR]: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7 * 4 * 13).toISOString(),
 }
 const Filter = () => {
   const [open, setOpen] = useState(false)
@@ -33,6 +36,18 @@ const Filter = () => {
     {
       name: timeSortTypes.BEFORE_1_DAY,
       text: '하루 전',
+    },
+    {
+      name: timeSortTypes.BEFORE_1_WEEK,
+      text: '일주일 전',
+    },
+    {
+      name: timeSortTypes.BEFORE_1_MONTH,
+      text: '한달 전',
+    },
+    {
+      name: timeSortTypes.BEFORE_1_YEAR,
+      text: '올해',
     },
   ]
 
