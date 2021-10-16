@@ -4,7 +4,6 @@ import appSaga from '../views/shared/redux/saga';
 import homeSaga from '../views/home/redux/saga';
 import watchSaga from '../views/watch/redux/saga';
 import searchSaga from '../views/search/redux/saga';
-import categorySaga from '../views/home/categories/redux/saga';
 
 function* sagas() {
   yield all([
@@ -12,7 +11,6 @@ function* sagas() {
     fork(homeSaga),
     fork(watchSaga),
     fork(searchSaga),
-    fork(categorySaga),
   ])
 }
 export default sagas;

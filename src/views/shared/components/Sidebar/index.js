@@ -15,7 +15,6 @@ const Container = styled.div`
   bottom: 0;
   left: 0;
   z-index: 1000;
-  overflow-y: auto;
   background: #fff; 
 `;
 export default Sidebar;
