@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
-import { MdAccountCircle, MdApps, MdMoreVert } from 'react-icons/all';
+import { MdAccountCircle, MdApps, MdMoreVert } from 'react-icons/md';
 
 const Nav = () => (
   <Container>

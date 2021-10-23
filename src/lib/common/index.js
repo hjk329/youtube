@@ -20,14 +20,3 @@ export const formatThousandDigit1 = (num) => {
   if (num < 1000) return num;
   return `${(Number(num) / 1000).toFixed(1)}천`
 };
-
-export const formatCommentsTime = (timeInfo) => {
-  const now = new Date()
-  const published = new Date(timeInfo)
-  const timeDiff = now.getTime() - published.getTime()
-  const passedHour = Math.round(timeDiff / (1000 * 60 * 60))
-  const passedDay = Math.round(timeDiff / (1000 * 60 * 60 * 24))
-  const passedMonth = Math.round(timeDiff / (1000 * 60 * 60 * 24 * 30))
-  const passedYear = Math.round(timeDiff / (1000 * 60 * 60 * 24 * 30 * 12))
-  return passedDay
-}

@@ -30,6 +30,6 @@ const watchSlice = createSlice({
 })
 
 export const {
-  setWatchVideo, setComments, setNextPageToken, setRelatedVideos,
+  setWatchVideo, setComments, setRelatedVideos,
 } = watchSlice.actions;
 export default watchSlice.reducer;

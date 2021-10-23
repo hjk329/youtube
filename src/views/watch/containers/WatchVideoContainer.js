@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useParams, useRouteMatch } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import _ from 'lodash';
 
 import { watchVideo } from '../redux/slice';

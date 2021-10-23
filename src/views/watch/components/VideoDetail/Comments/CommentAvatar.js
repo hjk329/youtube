@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MdThumbDown, MdThumbUp } from 'react-icons/all';
-
+import { MdThumbDown, MdThumbUp } from 'react-icons/md';
 import moment from 'moment';
 
 const CommentAvatar = ({
