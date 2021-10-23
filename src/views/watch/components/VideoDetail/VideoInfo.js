@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {
   MdMoreHoriz,
   MdPlaylistAdd, MdReply, MdThumbDown, MdThumbUp,
-} from 'react-icons/all';
+} from 'react-icons/md';
 
 import { Link } from 'react-router-dom';
 

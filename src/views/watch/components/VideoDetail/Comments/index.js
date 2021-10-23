@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { formatDistance } from 'date-fns';
-import ko from 'date-fns/locale/ko';
 
 import { formatThousandDigit1 } from '../../../../../lib/common';
 import CommentAvatar from './CommentAvatar';

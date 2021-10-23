@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { MdMic, MdSearch } from 'react-icons/all';
+import { MdMic, MdSearch } from 'react-icons/md';
 
 import { DefaultButton } from '../../Button/DefaultButton';
 
 const SearchBox = () => {
   const history = useHistory()
-  const dispatch = useDispatch()
 
   const [query, setQuery] = useState('')
 
@@ -49,12 +47,6 @@ const Container = styled.div`
   padding: 0 4px;
   height: 30px;
   flex-basis: 728px;
-
-  //@media screen and (max-width:640px) {
-  //  display: none;
-  //}
-
-
 `;
 
 const Form = styled.form`

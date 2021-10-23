@@ -2,15 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdMenu } from 'react-icons/all';
 import { Link } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
-
 import { useMediaMatch } from 'rooks';
 
 import { IconLogo } from '../../../../../icons';
 import SearchBox from '../SearchBox';
 import Nav from './Nav';
-
 import { handleDrawerSidebar, handleNormalSidebar } from '../../../redux/slice';
 
 const Gnb = () => {

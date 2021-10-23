@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import cn from 'classnames';
 
 import { getVideos } from '../redux/slice';
 import VideoList from '../components/List/VideoList';
