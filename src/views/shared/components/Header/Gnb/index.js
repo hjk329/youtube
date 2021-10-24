@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MdMenu } from 'react-icons/all';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaMatch } from 'rooks';
 
@@ -15,8 +15,10 @@ const Gnb = () => {
   const small = useMediaMatch('(max-width: 1000px)');
   const normalSidebar = useSelector((state) => state.app.normalSidebar)
   const drawerSidebar = useSelector((state) => state.app.drawerSidebar)
+  const location = useLocation()
+
   const onClick = () => {
-    if (small) {
+    if (small || location.pathname.startsWith('/watch/')) {
       dispatch(handleDrawerSidebar(!drawerSidebar))
     } else {
       dispatch(handleNormalSidebar(!normalSidebar))
