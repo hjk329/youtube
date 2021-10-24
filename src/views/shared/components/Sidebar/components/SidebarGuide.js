@@ -1,37 +1,40 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import { useMediaMatch } from 'rooks';
+import { useLocation } from 'react-router-dom';
 
-import Shortcuts from '../components/Sidebar/components/Shortcuts';
-import Contents from '../components/Sidebar/components/contents';
-
-const MainSidebarContainer = () => {
+const SidebarGuide = () => {
   const normalSidebar = useSelector((state) => state.app.normalSidebar)
-  const location = useLocation()
   const smallScreen = useMediaMatch('(max-width: 1000px');
   const mobileScreen = useMediaMatch('(max-width: 768px');
+  const location = useLocation()
 
   if (mobileScreen || location.pathname.startsWith('/watch/')) return null;
+
   return (
     <Container>
       {
         // eslint-disable-next-line no-nested-ternary
         smallScreen
-          ? <Shortcuts />
+          ? <ShortcutGuide />
           : normalSidebar
-            ? <Contents />
-            : <Shortcuts />
+            ? <NormalGuide />
+            : <ShortcutGuide />
       }
     </Container>
   )
 }
 
 const Container = styled.div`
-  position: fixed;
-  top: 56px;
-  left: 0;
-  bottom: 0;
+  flex-shrink: 0;
 `;
-export default MainSidebarContainer;
+
+const ShortcutGuide = styled.div`
+  width: 72px;
+`;
+
+const NormalGuide = styled.div`
+  width: 240px;
+`;
+export default SidebarGuide;

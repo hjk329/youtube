@@ -6,8 +6,8 @@ import MainSidebarContainer from './MainSidebarContainer';
 
 const SidebarContainer = () => (
   <Container>
-    <DrawerSidebar />
     <MainSidebarContainer />
+    <DrawerSidebar />
   </Container>
 )
 
