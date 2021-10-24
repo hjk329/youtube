@@ -8,15 +8,15 @@ import { GlobalStyle } from './styled/GlobalStyle';
 import Watch from './pages/Watch';
 import Search from './pages/Search';
 import SidebarContainer from './views/shared/containers/SidebarContainer';
+import SidebarGuide from './views/shared/components/Sidebar/components/SidebarGuide';
 
 const App = () => (
   <Container>
     <GlobalStyle />
     <HeaderContainer />
+    <SidebarContainer />
     <Template>
-      <Aside>
-        <SidebarContainer />
-      </Aside>
+      <SidebarGuide />
       <Main>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -38,11 +38,5 @@ const Template = styled.div`
 
 const Main = styled.div`
   flex: 1;
-`;
-
-const Aside = styled.div`
-  max-width: 300px;
-  flex-shrink: 0;
-
 `;
 export default App;
